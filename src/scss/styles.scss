@@ -1,8 +1,9 @@
-@import "vendor";
-
 // If you want to override variables do it here
 @import "theme";
 @import "variables";
+
+// styles from external vendors like bootstrap
+@import "vendor";
 
 // If you want to add something do it here
 @import "custom";
