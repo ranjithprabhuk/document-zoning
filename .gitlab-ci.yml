@@ -9,3 +9,6 @@ all_tests:
     - npm install
     - npm run lint
     - npm run build
+
+tags:
+  -  testing
