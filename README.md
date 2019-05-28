@@ -8,7 +8,7 @@ Document Zoning requires [Node.js](https://nodejs.org/) v10+ to run.
 
 Clone the Angular application into your local.
 ```sh
-https://infygit.ad.infosys.com/ranjithprabhuk/document-zoning.git
+https://github.com/ranjithprabhuk/document-zoning.git
 ```
 Install the dependencies and devDependencies by executing the following command.\
 ```sh
