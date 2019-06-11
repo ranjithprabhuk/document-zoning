@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
+<div class="navbar navbar-expand-lg navbar-dark bg-primary">
   <div class="container-fluid">
     <a href="./" class="navbar-brand">Document Zoning</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -10,7 +10,7 @@
           <a class="nav-link" href="./"><span class="fa fa-upload"></span>Upload</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="./"><span class="fa fa-file"></span>Forms</a>
+          <a class="nav-link" [routerLink]="['/medical-form']"><span class="fa fa-file"></span>Forms</a>
         </li>
       </ul>
 
@@ -23,7 +23,7 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" href="./" target="_blank">User Information</a>
-        </li>          
+        </li>
       </ul>
     </div>
   </div>
