@@ -20,10 +20,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  declarations: [
-    UploadFormComponent,
-    MedicalFormComponent
-  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
