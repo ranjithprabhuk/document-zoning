@@ -1,3 +1,17 @@
-<p>
-  medical-form works!
-</p>
+<div class="row">
+  <section class="col-6">
+    <accordion  [closeOthers]="true" [isAnimated]="true">
+      <accordion-group heading="Personal Details" [isOpen]="true">
+        Personal Details Form
+      </accordion-group>
+      <accordion-group heading="Address Information">
+        Address Information Form
+      </accordion-group>
+    </accordion>
+  </section>
+  <section class="col-6">
+    <div class="canvas-container">
+      <canvas id="document-viewer"></canvas>
+    </div>
+  </section>
+</div>
