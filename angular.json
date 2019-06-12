@@ -33,7 +33,9 @@
             "stylePreprocessorOptions": {
               "includePaths": ["./node_modules"]
             },
-            "scripts": [],
+            "scripts": [
+              "./node_modules/pdfjs-dist/build/pdf.worker.min.js"
+            ],
             "es5BrowserSupport": true
           },
           "configurations": {
