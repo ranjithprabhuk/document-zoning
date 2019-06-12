@@ -1,5 +1,5 @@
 <div class="row">
     <section class="col-12">
-      <input type="file">
+      <input id="pdf-file" type="file" (change)="handleFileUpload($event.target.files)">
     </section>
   </div>
