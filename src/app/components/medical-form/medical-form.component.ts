@@ -1,5 +1,8 @@
-import { Component, OnInit, AfterContentInit } from '@angular/core';
+import { Component, OnInit, AfterContentInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
 import * as pdfjsLib from 'pdfjs-dist/build/pdf';
+import { SharedService } from '../../shared/shared.service';
+
 pdfjsLib.GlobalWorkerOptions.workerSrc = 'pdfjs-dist/build/pdf.worker';
 
 @Component({
@@ -7,7 +10,7 @@ pdfjsLib.GlobalWorkerOptions.workerSrc = 'pdfjs-dist/build/pdf.worker';
   templateUrl: './medical-form.component.html',
   styleUrls: ['./medical-form.component.scss']
 })
-export class MedicalFormComponent implements OnInit, AfterContentInit {
+export class MedicalFormComponent implements OnInit, AfterContentInit, OnDestroy {
   public pdfDoc = null;
   public pageNum = 1;
   public pageRendering = false;
@@ -15,8 +18,11 @@ export class MedicalFormComponent implements OnInit, AfterContentInit {
   public scale = 0.8;
   public canvas: HTMLCanvasElement = null;
   public ctx = null;
+  public pdfFile: Subscription = null;
 
-  constructor() {
+  constructor(
+    private sharedService: SharedService,
+  ) {
 
   }
 
@@ -27,7 +33,7 @@ export class MedicalFormComponent implements OnInit, AfterContentInit {
   ngAfterContentInit(): void {
     this.canvas = document.getElementById('document-viewer') as HTMLCanvasElement;
     this.ctx = this.canvas.getContext('2d');
-    this.loadPdf();
+    this.getUploadedFile();
   }
 
   public renderPage(num): void {
@@ -52,13 +58,25 @@ export class MedicalFormComponent implements OnInit, AfterContentInit {
     });
   }
 
-  public loadPdf(): void {
-    const url = './assets/pdf/sample.pdf';
-    pdfjsLib.getDocument(url).promise.then((pdfDocument) => {
+  public getUploadedFile(): void {
+    this.pdfFile = this.sharedService.currentFile.subscribe((file) => {
+      if (file) {
+        this.loadPdf(file);
+      }
+    });
+  }
+
+  public loadPdf(file: Uint8Array): void {
+    pdfjsLib.getDocument(file).then((pdfDocument) => {
       this.pdfDoc = pdfDocument;
 
       // Initial/first page rendering
       this.renderPage(this.pageNum);
     });
+  }
+
+  public ngOnDestroy(): void {
+    this.pdfFile.unsubscribe();
+    this.sharedService.updateFile(null);
   }
 }
