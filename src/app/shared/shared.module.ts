@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HeaderComponent } from './components/header/header.component';
 import { RouterModule } from '@angular/router';
+import { SharedService } from './shared.service';
 
 @NgModule({
   declarations: [
@@ -11,7 +12,7 @@ import { RouterModule } from '@angular/router';
     BrowserModule,
     RouterModule
   ],
-  providers: [],
+  providers: [SharedService],
   exports: [
     HeaderComponent
   ]
