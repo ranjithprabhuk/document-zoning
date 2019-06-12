@@ -10,8 +10,8 @@ import { SharedModule } from './shared/shared.module';
 import { MedicalFormComponent, UploadFormComponent, FormGeneratorComponent } from './components';
 import { FormDirective } from './components/form.directive';
 import { FormService} from './shared/services/form.service';
-import { InputComponent} from './components/form-generator/input';
-import { DropdownComponent} from './components/form-generator/dropdown';
+import { InputComponent} from './components/form-generator/form-components/input';
+import { DropdownComponent} from './components/form-generator/form-components/dropdown';
 
 @NgModule({
   declarations: [

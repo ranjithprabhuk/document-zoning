@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { } from '../'
+import { } from '../';
 import { FormGeneratorComponent } from './form-generator.component';
 
 describe('FormGeneratorComponent', () => {

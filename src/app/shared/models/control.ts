@@ -1,11 +1,11 @@
 import { ControlType } from './controlType';
 
 export class Control {
-    public labelText:string;
+    public labelText: string;
     public controlType: ControlType;
     public value: any;
     public isRequired: boolean;
-    public isEnabled:boolean;
+    public isEnabled: boolean;
 
     constructor(){
         this.labelText = '';
