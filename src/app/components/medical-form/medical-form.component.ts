@@ -7,7 +7,7 @@ pdfjsLib.GlobalWorkerOptions.workerSrc = 'pdfjs-dist/build/pdf.worker';
   templateUrl: './medical-form.component.html',
   styleUrls: ['./medical-form.component.scss']
 })
-export class MedicalFormComponent implements OnInit {
+export class MedicalFormComponent implements OnInit, AfterContentInit {
   public pdfDoc = null;
   public pageNum = 1;
   public pageRendering = false;
@@ -34,12 +34,11 @@ export class MedicalFormComponent implements OnInit {
     this.pageRendering = true;
     // Using promise to fetch the page
     this.pdfDoc.getPage(num).then((page) => {
-      let viewport = page.getViewport(this.scale);
-
+      const viewport = page.getViewport(this.scale);
       this.canvas.height = viewport.height;
       this.canvas.width = viewport.width;
 
-      let renderTask = page.render({canvasContext: this.ctx, viewport});
+      const renderTask = page.render({canvasContext: this.ctx, viewport});
 
       // Wait for rendering to finish
       renderTask.promise.then(() => {
@@ -54,10 +53,9 @@ export class MedicalFormComponent implements OnInit {
   }
 
   public loadPdf(): void {
-    let url = './assets/pdf/sample.pdf';
-    pdfjsLib.getDocument(url).promise.then((pdfDoc_) => {
-      this.pdfDoc = pdfDoc_;
-      // document.getElementById('page_count').textContent = pdfDoc.numPages;
+    const url = './assets/pdf/sample.pdf';
+    pdfjsLib.getDocument(url).promise.then((pdfDocument) => {
+      this.pdfDoc = pdfDocument;
 
       // Initial/first page rendering
       this.renderPage(this.pageNum);
