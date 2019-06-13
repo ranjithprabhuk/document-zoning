@@ -5,3 +5,18 @@ section.col-6 {
 #document-viewer {
   border: 1px solid #333;
 }
+
+div.canvas-container {
+  width: 100%!important;
+  height: 100vh !important;
+}
+
+:host /deep/ fabric {
+  div.canvas-container {
+    width: 100% !important;
+    height: 100vh !important;
+    position: absolute !important;
+    top: 0;
+    left: 0;
+  }
+}
