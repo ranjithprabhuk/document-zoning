@@ -3,16 +3,17 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AccordionModule } from 'ngx-bootstrap';
+import { FabricModule, FABRIC_CONFIG } from 'ngx-fabric-wrapper';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { MedicalFormComponent, UploadFormComponent, FormGeneratorComponent } from './components';
 import { FormDirective } from './components/form.directive';
-import { FormService} from './shared/services/form.service';
-import { InputComponent} from './components/form-generator/form-components/input';
-import { DropdownComponent} from './components/form-generator/form-components/dropdown';
-import { TextAreaComponent} from './components/form-generator/form-components/textarea';
+import { FormService } from './shared/services/form.service';
+import { InputComponent } from './components/form-generator/form-components/input';
+import { DropdownComponent } from './components/form-generator/form-components/dropdown';
+import { TextAreaComponent } from './components/form-generator/form-components/textarea';
 
 @NgModule({
   declarations: [
@@ -30,9 +31,13 @@ import { TextAreaComponent} from './components/form-generator/form-components/te
     BrowserAnimationsModule,
     AccordionModule.forRoot(),
     AppRoutingModule,
+    FabricModule,
     SharedModule
   ],
-  providers: [FormService],
+  providers: [
+    FormService,
+    { provide: FABRIC_CONFIG, useValue: {} },
+  ],
   bootstrap: [AppComponent],
   entryComponents: [
     InputComponent,
