@@ -6,12 +6,10 @@ import { FormComponent } from '../../../shared/models/form';
   template: `
     <div class="form-group">
     <label for="{{data.labelText}}">{{data.labelText}}</label>
-    <select class="form-control" id="{{data.labelText}}" name="{{data.labelText}}" >
-      <option *ngFor="let opt of data.value.split(',')" value="opt">{{opt}}</option>
-    </select>
+    <input type="radio" class="form-control" id="{{data.labelText}}" placeholder="{{data.value}}">
     </div>
   `
 })
-export class DropdownComponent implements FormComponent {
+export class RadioComponent implements FormComponent {
   @Input() data: any;
 }

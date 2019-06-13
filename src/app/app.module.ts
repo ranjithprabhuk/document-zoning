@@ -12,6 +12,10 @@ import { FormDirective } from './components/form.directive';
 import { FormService} from './shared/services/form.service';
 import { InputComponent} from './components/form-generator/form-components/input';
 import { DropdownComponent} from './components/form-generator/form-components/dropdown';
+import { RadioComponent} from './components/form-generator/form-components/radio';
+import { FieldSetEndComponent} from './components/form-generator/form-components/fieldsetend';
+import { FieldSetStartComponent} from './components/form-generator/form-components/fieldsetstart';
+import { TextAreaComponent} from './components/form-generator/form-components/textarea';
 
 @NgModule({
   declarations: [
@@ -21,7 +25,11 @@ import { DropdownComponent} from './components/form-generator/form-components/dr
     FormGeneratorComponent,
     FormDirective,
     InputComponent,
-    DropdownComponent
+    DropdownComponent,
+    RadioComponent,
+    FieldSetEndComponent,
+    FieldSetStartComponent,
+    TextAreaComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +42,11 @@ import { DropdownComponent} from './components/form-generator/form-components/dr
   bootstrap: [AppComponent],
   entryComponents: [
     InputComponent,
-    DropdownComponent
+    DropdownComponent,
+    RadioComponent,
+    TextAreaComponent,
+    FieldSetEndComponent,
+    FieldSetStartComponent,
   ]
 })
 export class AppModule { }
