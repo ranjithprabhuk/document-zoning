@@ -1,5 +1,5 @@
 import { Control } from './../models/control';
-import { ControlType } from './../models/controlType';
+import { ControlType } from './../models/control-type';
 import { Injectable } from '@angular/core';
 import { InputComponent } from '../../components/form-generator/form-components/input';
 import { FormItem } from '../models/form-item';
