@@ -1,4 +1,4 @@
-import { ControlType } from './controlType';
+import { ControlType } from './control-type';
 
 export class Control {
     public labelText: string;
@@ -7,7 +7,7 @@ export class Control {
     public isRequired: boolean;
     public isEnabled: boolean;
 
-    constructor(){
+    constructor() {
         this.labelText = '';
         this.controlType = ControlType.NONE;
         this.value = '';
@@ -15,7 +15,7 @@ export class Control {
         this.isEnabled = false;
     }
 
-    public map(data){
+    public map(data) {
         this.labelText = '';
         this.controlType = ControlType.INPUT;
         this.value = '';
