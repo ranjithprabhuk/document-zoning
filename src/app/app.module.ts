@@ -12,6 +12,7 @@ import { FormDirective } from './components/form.directive';
 import { FormService} from './shared/services/form.service';
 import { InputComponent} from './components/form-generator/form-components/input';
 import { DropdownComponent} from './components/form-generator/form-components/dropdown';
+import { TextAreaComponent} from './components/form-generator/form-components/textarea';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { DropdownComponent} from './components/form-generator/form-components/dr
     FormGeneratorComponent,
     FormDirective,
     InputComponent,
-    DropdownComponent
+    DropdownComponent,
+    TextAreaComponent
   ],
   imports: [
     BrowserModule,
