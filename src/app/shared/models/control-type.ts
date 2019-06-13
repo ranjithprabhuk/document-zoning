@@ -2,6 +2,11 @@ export enum ControlType {
     NONE,
     DROPDOWN,
     INPUT,
-    RADIOBUTTON,
-    CHECKBOX
+    RADIO,
+    CHECKBOX,
+    EMAIL,
+    TEXTAREA,
+    NUMBER,
+    DATE,
+    TEL,
 }
