@@ -25,6 +25,7 @@
     "express": "^4.17.1",
     "font-awesome": "^4.7.0",
     "ngx-bootstrap": "^4.2.0",
+    "ngx-fabric-wrapper": "^8.0.0",
     "pdfjs-dist": "^2.0.943",
     "rxjs": "~6.3.3",
     "tslib": "^1.9.0",

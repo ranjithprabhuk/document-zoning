@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AccordionModule } from 'ngx-bootstrap';
+import { FabricModule, FABRIC_CONFIG } from 'ngx-fabric-wrapper';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +17,7 @@ import { RadioComponent} from './components/form-generator/form-components/radio
 import { FieldSetEndComponent} from './components/form-generator/form-components/fieldsetend';
 import { FieldSetStartComponent} from './components/form-generator/form-components/fieldsetstart';
 import { TextAreaComponent} from './components/form-generator/form-components/textarea';
+import { PdfHighlighterComponent } from './components/pdf-highlighter/pdf-highlighter.component';
 
 @NgModule({
   declarations: [
@@ -29,16 +31,21 @@ import { TextAreaComponent} from './components/form-generator/form-components/te
     RadioComponent,
     FieldSetEndComponent,
     FieldSetStartComponent,
-    TextAreaComponent
+    TextAreaComponent,
+    PdfHighlighterComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AccordionModule.forRoot(),
     AppRoutingModule,
+    FabricModule,
     SharedModule
   ],
-  providers: [FormService],
+  providers: [
+    FormService,
+    { provide: FABRIC_CONFIG, useValue: {} },
+  ],
   bootstrap: [AppComponent],
   entryComponents: [
     InputComponent,
