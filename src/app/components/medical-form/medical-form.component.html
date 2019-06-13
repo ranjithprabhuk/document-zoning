@@ -1,12 +1,9 @@
 <div class="row">
   <section class="col-6">
     <accordion  [closeOthers]="true" [isAnimated]="true">
-      <accordion-group heading="Personal Details" [isOpen]="true">
-        Personal Details Form
-      </accordion-group>
-      <accordion-group heading="Address Information">
-        Address Information Form
-      </accordion-group>
+      <form>      
+        <app-form-generator></app-form-generator>
+      </form>
     </accordion>
   </section>
   <section class="col-6">
