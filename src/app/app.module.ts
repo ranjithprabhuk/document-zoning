@@ -10,10 +10,13 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { MedicalFormComponent, UploadFormComponent, FormGeneratorComponent } from './components';
 import { FormDirective } from './components/form.directive';
-import { FormService } from './shared/services/form.service';
-import { InputComponent } from './components/form-generator/form-components/input';
-import { DropdownComponent } from './components/form-generator/form-components/dropdown';
-import { TextAreaComponent } from './components/form-generator/form-components/textarea';
+import { FormService} from './shared/services/form.service';
+import { InputComponent} from './components/form-generator/form-components/input';
+import { DropdownComponent} from './components/form-generator/form-components/dropdown';
+import { RadioComponent} from './components/form-generator/form-components/radio';
+import { FieldSetEndComponent} from './components/form-generator/form-components/fieldsetend';
+import { FieldSetStartComponent} from './components/form-generator/form-components/fieldsetstart';
+import { TextAreaComponent} from './components/form-generator/form-components/textarea';
 
 @NgModule({
   declarations: [
@@ -24,6 +27,9 @@ import { TextAreaComponent } from './components/form-generator/form-components/t
     FormDirective,
     InputComponent,
     DropdownComponent,
+    RadioComponent,
+    FieldSetEndComponent,
+    FieldSetStartComponent,
     TextAreaComponent
   ],
   imports: [
@@ -41,7 +47,11 @@ import { TextAreaComponent } from './components/form-generator/form-components/t
   bootstrap: [AppComponent],
   entryComponents: [
     InputComponent,
-    DropdownComponent
+    DropdownComponent,
+    RadioComponent,
+    TextAreaComponent,
+    FieldSetEndComponent,
+    FieldSetStartComponent,
   ]
 })
 export class AppModule { }
