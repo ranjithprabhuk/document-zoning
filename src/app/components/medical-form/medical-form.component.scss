@@ -8,13 +8,13 @@ section.col-6 {
 
 div.canvas-container {
   width: 100%!important;
-  height: 100vh !important;
+  height: 100% !important;
 }
 
 :host /deep/ fabric {
   div.canvas-container {
     width: 100% !important;
-    height: 100vh !important;
+    height: 100% !important;
     position: absolute !important;
     top: 0;
     left: 0;
