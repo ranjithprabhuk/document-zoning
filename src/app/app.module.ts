@@ -17,6 +17,7 @@ import { RadioComponent} from './components/form-generator/form-components/radio
 import { FieldSetEndComponent} from './components/form-generator/form-components/fieldsetend';
 import { FieldSetStartComponent} from './components/form-generator/form-components/fieldsetstart';
 import { TextAreaComponent} from './components/form-generator/form-components/textarea';
+import { PdfHighlighterComponent } from './components/pdf-highlighter/pdf-highlighter.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { TextAreaComponent} from './components/form-generator/form-components/te
     RadioComponent,
     FieldSetEndComponent,
     FieldSetStartComponent,
-    TextAreaComponent
+    TextAreaComponent,
+    PdfHighlighterComponent
   ],
   imports: [
     BrowserModule,
