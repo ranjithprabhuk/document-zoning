@@ -1,7 +1,7 @@
 <div class="row">
   <section class="col-6">
     <accordion  [closeOthers]="true" [isAnimated]="true">
-      <form>      
+      <form>
         <app-form-generator></app-form-generator>
       </form>
     </accordion>
@@ -9,6 +9,7 @@
   <section class="col-6">
     <div class="canvas-container">
       <canvas id="document-viewer"></canvas>
+      <fabric [width]="width" [height]="height" [data]="highlighter" [config]="config"></fabric>
     </div>
   </section>
 </div>
