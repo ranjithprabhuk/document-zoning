@@ -13,7 +13,7 @@ export class Highlighter {
         this.left = -100;
         this.width = 200;
         this.height = 60;
-        this.fill = '#cfcfcf';
+        this.fill = '#0f0';
         this.opacity = 0.3;
     }
 
