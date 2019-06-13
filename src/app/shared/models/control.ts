@@ -1,4 +1,4 @@
-import { ControlType } from './controlType';
+import { ControlType } from './control-type';
 
 export class Control {
     public labelText: string;
