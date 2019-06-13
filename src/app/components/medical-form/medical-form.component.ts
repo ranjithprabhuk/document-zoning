@@ -2,6 +2,8 @@ import { Component, OnInit, AfterContentInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import * as pdfjsLib from 'pdfjs-dist/build/pdf';
 import { SharedService } from '../../shared/shared.service';
+import { fabric } from 'fabric';
+import { FabricConfigInterface } from 'ngx-fabric-wrapper';
 
 pdfjsLib.GlobalWorkerOptions.workerSrc = 'pdfjs-dist/build/pdf.worker';
 
@@ -19,6 +21,16 @@ export class MedicalFormComponent implements OnInit, AfterContentInit, OnDestroy
   public canvas: HTMLCanvasElement = null;
   public ctx = null;
   public pdfFile: Subscription = null;
+  public width = 0;
+  public height = 0;
+  public highlighter = {};
+
+
+  public disabled = false;
+
+  public config: FabricConfigInterface = {
+    renderOnAddRemove: true
+  };
 
   constructor(
     private sharedService: SharedService,
@@ -41,14 +53,18 @@ export class MedicalFormComponent implements OnInit, AfterContentInit, OnDestroy
     // Using promise to fetch the page
     this.pdfDoc.getPage(num).then((page) => {
       const viewport = page.getViewport(this.scale);
-      this.canvas.height = viewport.height;
-      this.canvas.width = viewport.width;
+      const { width, height } = viewport;
+      this.canvas.height = height;
+      this.canvas.width = width;
+      this.width = width;
+      this.height = height;
 
-      const renderTask = page.render({canvasContext: this.ctx, viewport});
+      const renderTask = page.render({ canvasContext: this.ctx, viewport });
 
       // Wait for rendering to finish
       renderTask.promise.then(() => {
         this.pageRendering = false;
+        this.highlightPdf();
         if (this.pageNumPending !== null) {
           // New page rendering is pending
           this.renderPage(this.pageNumPending);
@@ -73,6 +89,22 @@ export class MedicalFormComponent implements OnInit, AfterContentInit, OnDestroy
       // Initial/first page rendering
       this.renderPage(this.pageNum);
     });
+  }
+
+  public highlightPdf(): void {
+    this.highlighter = {
+      objects: [
+        {
+          type: 'rect',
+          top: -30,
+          left: -100,
+          width: 200,
+          height: 60,
+          fill: '#cfcfcf',
+          opacity: 0.3
+        }
+      ]
+    };
   }
 
   public ngOnDestroy(): void {
