@@ -24,15 +24,15 @@ export class PdfHighlighterComponent implements AfterContentInit {
   public highlighter = {};
 
 
-  @Input() showHighlighter: boolean = true;
-  @Input() private set pdf(pdfInfo: Pdf) {
+  @Input() showHighlighter = true;
+  @Input() set pdf(pdfInfo: Pdf) {
     if (pdfInfo && pdfInfo.File && pdfInfo.PageNumber) {
       this.pageNum = pdfInfo.PageNumber;
       this.scale = pdfInfo.Scale;
       this.loadPdf(pdfInfo.File);
     }
   }
-  @Input() private set highlighterConfig(highlighter: Highlighter) {
+  @Input() set highlighterConfig(highlighter: Highlighter) {
     this.highlightPdf(highlighter);
   }
 

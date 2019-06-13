@@ -12,7 +12,7 @@ export class Pdf {
     map(file: Uint8Array, pageNumber: number, scale: number = 0.8): void {
         this.File = file;
         this.PageNumber = pageNumber;
-        this.Scale = scale
+        this.Scale = scale;
     }
 
     setPageNumber(pageNumber: number): void {
