@@ -1,16 +1,12 @@
 <div class="row">
   <section class="col-6">
-    <accordion  [closeOthers]="true" [isAnimated]="true">
-      <form>
-        <app-form-generator></app-form-generator>
-      </form>
-    </accordion>
+      <accordion [closeOthers]="true" [isAnimated]="true">
+        <accordion-group *ngFor="let formGroup of formGroups" heading="{{formGroup.header}}">
+          <app-form-generator [formConfig]="formGroup.formComponents"></app-form-generator>
+        </accordion-group>
+      </accordion>
   </section>
   <section class="col-6">
-    <app-pdf-highlighter
-      [pdf]="pdfFile"
-      [showHighlighter]="true"
-      [highlighterConfig]="highlighter"
-    ></app-pdf-highlighter>
+    <app-pdf-highlighter [pdf]="pdfFile" [showHighlighter]="true" [highlighterConfig]="highlighter"></app-pdf-highlighter>
   </section>
 </div>

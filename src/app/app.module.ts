@@ -4,30 +4,32 @@ import { HttpClient , HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 
-import { AccordionModule, ModalModule } from 'ngx-bootstrap';
+import { AccordionModule, ModalModule, CollapseModule } from 'ngx-bootstrap';
 import { FabricModule, FABRIC_CONFIG } from 'ngx-fabric-wrapper';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
-import { MedicalFormComponent, UploadFormComponent, FormGeneratorComponent } from './components';
+import {
+  MedicalFormComponent,
+  UploadFormComponent,
+  FormGeneratorComponent,
+  PdfHighlighterComponent
+} from './components';
 import { FormDirective } from './components/form.directive';
 import { FormService} from './shared/services/form.service';
+import { ConfigService } from './shared/services/config.service';
 import {
   InputComponent,
   DropdownComponent,
   RadioComponent,
-  FieldSetEndComponent,
-  FieldSetStartComponent,
   TextAreaComponent,
   CheckboxComponent,
   DateComponent,
   TelComponent,
   NumberComponent,
   EmailComponent
-} from './components/form-generator/form-components/index';
-import { PdfHighlighterComponent } from './components/pdf-highlighter/pdf-highlighter.component';
-import { ConfigService } from './shared/services/config.service';
+} from './components/form-generator/form-components';
 
 @NgModule({
   declarations: [
@@ -39,8 +41,6 @@ import { ConfigService } from './shared/services/config.service';
     InputComponent,
     DropdownComponent,
     RadioComponent,
-    FieldSetEndComponent,
-    FieldSetStartComponent,
     TextAreaComponent,
     CheckboxComponent,
     DateComponent,
@@ -56,6 +56,7 @@ import { ConfigService } from './shared/services/config.service';
     FormsModule,
     AccordionModule.forRoot(),
     ModalModule.forRoot(),
+    CollapseModule.forRoot(),
     AppRoutingModule,
     FabricModule,
     SharedModule,
@@ -73,8 +74,6 @@ import { ConfigService } from './shared/services/config.service';
     DropdownComponent,
     RadioComponent,
     TextAreaComponent,
-    FieldSetEndComponent,
-    FieldSetStartComponent,
     CheckboxComponent,
     DateComponent,
     TelComponent,

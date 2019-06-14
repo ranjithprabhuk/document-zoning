@@ -6,15 +6,13 @@ import {
     InputComponent,
     DropdownComponent,
     RadioComponent,
-    FieldSetEndComponent,
-    FieldSetStartComponent,
     TextAreaComponent,
     CheckboxComponent,
     DateComponent,
     TelComponent,
     NumberComponent,
     EmailComponent
-  } from '../../components/form-generator/form-components/index';
+} from '../../components/form-generator/form-components';
 
 import { ConfigService } from '@shared/services';
 
@@ -24,76 +22,54 @@ export class FormService {
     form;
     mapping = [];
     constructor(private configService: ConfigService) {
-        this.buildForm();
         this.getMapping();
     }
     // TODO: add logic to convert form data to form items
-    buildForm() {
-        this.configService.getNonMedicalForm().subscribe( formData => {
-            this.form = formData;
+    public getForm() {
+        return this.configService.getNonMedicalForm().toPromise().then((formData) => {
+            return Promise.resolve(this.buildForm(formData));
         });
     }
     private getMapping() {
-        this.configService.getControlMapping().subscribe((value) => {
-            this.mapping = value as [];
-        });
+        if (!this.mapping || this.mapping.length === 0) {
+            this.configService.getControlMapping().toPromise().then((value) => {
+                this.mapping = value as any[];
+            });
+        }
     }
 
     // TODO: add logic to convert form data to form items
-    public getForm() {
-        const formComponents = [];
-        let prevFieldset = '';
-        let currentFieldset = '';
-        let lastControlData;
-        this.form.forEach((data) => {
-            const controldata = new Control(this.mapping);
-            lastControlData = controldata;
-            let formitem;
-            controldata.map(data);
-            currentFieldset = controldata.fieldset;
-            if (prevFieldset === '' || prevFieldset !== currentFieldset) {
-                if (prevFieldset !== '') {
-                    formComponents.push(new FormItem(FieldSetEndComponent, controldata));
-                }
-                formComponents.push(new FormItem(FieldSetStartComponent, controldata));
-            }
-            prevFieldset = currentFieldset;
-            switch (controldata.controlType) {
-                case ControlType.CHECKBOX:
-                    formitem = new FormItem(CheckboxComponent, controldata);
-                    break;
-                case ControlType.DATE:
-                    formitem = new FormItem(DateComponent, controldata);
-                    break;
-                case ControlType.DROPDOWN:
-                    formitem = new FormItem(DropdownComponent, controldata);
-                    break;
-                case ControlType.EMAIL:
-                    formitem = new FormItem(EmailComponent, controldata);
-                    break;
-                case ControlType.INPUT:
-                    formitem = new FormItem(InputComponent, controldata);
-                    break;
-                case ControlType.NONE:
-                    console.log('Unknown Control Type : ', controldata);
-                    break;
-                case ControlType.NUMBER:
-                    formitem = new FormItem(NumberComponent, controldata);
-                    break;
-                case ControlType.RADIO:
-                    formitem = new FormItem(RadioComponent, controldata);
-                    break;
-                case ControlType.TEL:
-                    formitem = new FormItem(TelComponent, controldata);
-                    break;
-                case ControlType.TEXTAREA:
-                    formitem = new FormItem(TextAreaComponent, controldata);
-                    break;
-            }
-            formComponents.push(formitem);
-        });
-        formComponents.push(new FormItem(FieldSetEndComponent, lastControlData));
+    public buildForm(formData) {
+        let formComponents = [];
+        const groupedFormComponents: any[] = [];
 
-        return formComponents;
+        formData.forEach((data) => {
+            formComponents = [];
+            data.formElements.forEach((formElements) => {
+                const controldata = new Control(this.mapping);
+                controldata.map(formElements);
+                formComponents.push(this.getFormItem(controldata));
+            });
+            groupedFormComponents.push({
+                header: data.formGroup,
+                formComponents
+            });
+        });
+
+        return groupedFormComponents;
+    }
+
+    private getFormItem(controldata): FormItem {
+        switch (controldata.controlType) {
+            case ControlType.CHECKBOX: return new FormItem(CheckboxComponent, controldata);
+            case ControlType.DATE: return new FormItem(DateComponent, controldata);
+            case ControlType.DROPDOWN: return new FormItem(DropdownComponent, controldata);
+            case ControlType.EMAIL: return new FormItem(EmailComponent, controldata);
+            case ControlType.INPUT: return new FormItem(InputComponent, controldata);
+            case ControlType.NUMBER: return new FormItem(NumberComponent, controldata);
+            case ControlType.RADIO: return new FormItem(RadioComponent, controldata);
+            case ControlType.TEL: return new FormItem(TelComponent, controldata);
+            case ControlType.TEXTAREA: return new FormItem(TextAreaComponent, controldata);
+        }
     }
 }
