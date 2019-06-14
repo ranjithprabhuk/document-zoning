@@ -2,6 +2,7 @@ import { ControlType } from './control-type';
 
 export class Control {
     public labelText: string;
+    public formControlName: string;
     public controlType: ControlType;
     public value: any;
     public isRequired: boolean;
@@ -17,6 +18,7 @@ export class Control {
 
     public map(data) {
         this.labelText = data.label;
+        this.formControlName = data.formControlName;
         this.controlType = this.GetControlType(data.label);
         this.value = data.value;
         this.isRequired = true;

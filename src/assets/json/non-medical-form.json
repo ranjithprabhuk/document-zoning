@@ -1,82 +1,26 @@
 [
     {
-        "formGroup": "Personal Details",
+        "formGroupTitle": "Personal Details",
         "formGroupName": "personalDetails",
         "formElements": [
             {
                 "label": "First Name",
-                "value": ""
+                "formControlName": "firstName",
+                "value": "sasi"
             },
             {
                 "label": "Middle Name",
-                "value": ""
+                "formControlName": "middleName",
+                "value": "kumar"
             },
             {
                 "label": "Last Name",
-                "value": ""
+                "formControlName": "lastName",
+                "value": "raju"
             },
             {
                 "label": "Address",
-                "value": ""
-            }
-        ]
-    },
-    {
-        "formGroup": "Form Details",
-        "formGroupId": "formDetails",
-        "formElements": [
-            {
-                "label": "Non Unit Linked",
-                "value": ""
-            },
-            {
-                "label": "Unit Linked",
-                "value": ""
-            },
-            {
-                "label": "UIN",
-                "value": ""
-            },
-            {
-                "label": "CIN",
-                "value": "U62347543ABCFDA87"
-            }
-        ]
-    },
-    {
-        "formGroup": "Agent Details",
-        "formGroupId": "formDetails",
-        "formElements": [
-            {
-                "label": "Proposal No",
-                "value": ""
-            },
-            {
-                "label": "Bank Ref Code",
-                "value": ""
-            },
-            {
-                "label": "STM Code",
-                "value": ""
-            },
-            {
-                "label": "STM Branch",
-                "value": ""
-            },
-            {
-                "label": "Employee",
-                "value": ""
-            },
-            {
-                "label": "Individual",
-                "value": ""
-            },
-            {
-                "label": "Bancassurance",
-                "value": ""
-            },
-            {
-                "label": "Unit Linked",
+                "formControlName": "address",
                 "value": ""
             }
         ]

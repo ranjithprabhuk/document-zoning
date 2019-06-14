@@ -15,6 +15,7 @@ import {
 } from '../../components/form-generator/form-components';
 
 import { ConfigService } from '@shared/services';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Injectable()
 export class FormService {
@@ -42,16 +43,24 @@ export class FormService {
     public buildForm(formData) {
         let formComponents = [];
         const groupedFormComponents: any[] = [];
-
-        formData.forEach((data) => {
+        formData.forEach((formGroup) => {
+            let formControls = {};
             formComponents = [];
-            data.formElements.forEach((formElements) => {
+            const { formElements , ...formGroupProperties } = formGroup;
+            formElements.forEach((formElement) => {
                 const controldata = new Control(this.mapping);
-                controldata.map(formElements);
+                controldata.map(formElement);
+                const dynamicFormControl = new FormControl(formElement.value);
+                formElement.formControlName = dynamicFormControl;
+                formControls[formElement.formControlName] = dynamicFormControl;
                 formComponents.push(this.getFormItem(controldata));
             });
+            const dynamicFormGroup = new FormGroup({
+                ...formControls
+            });
             groupedFormComponents.push({
-                header: data.formGroup,
+                settings: formGroupProperties,
+                [formGroupProperties.formGroupName]: dynamicFormGroup,
                 formComponents
             });
         });

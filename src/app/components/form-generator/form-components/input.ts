@@ -7,7 +7,7 @@ import { FormComponent } from '../../../shared/models/form';
     <div class="form-group">
     <label class="col-12 control-label">{{data.labelText}}</label>
     <div class="col-12">
-    <input type="input" class="form-control" id="{{data.labelText}}" placeholder="{{data.value}}">
+    <input type="input" class="form-control" id="data.labelText" placeholder="{{data.labelText}}" [formControlName]="data.formControlName">
     </div>
     </div>
   `

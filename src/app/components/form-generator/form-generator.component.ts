@@ -14,12 +14,7 @@ export class FormGeneratorComponent {
       this.generateForm(config);
     }
   }
-
-  constructor(
-    private componentFactoryResolver: ComponentFactoryResolver
-  ) {
-  }
-
+  constructor(private componentFactoryResolver: ComponentFactoryResolver) {}
 
   public generateForm(form): void {
     if (this.formHost) {
@@ -34,5 +29,4 @@ export class FormGeneratorComponent {
       }
     }
   }
-
 }
