@@ -1,0 +1,19 @@
+.step-container {
+    min-height: 12rem;
+    border: 1px solid #ccc;
+    > div, h3, h4 {
+        margin-bottom: 1rem;
+    }
+    span.fa {
+        padding: 1rem;
+        border-radius: 3rem;
+    }
+    span.arrow-icon {
+        position: absolute;
+        top: 4rem;
+        right: -2.5rem;
+        z-index: 5;
+        background-color: #e4e5e6;
+        padding: 2px 20px;
+    }
+}

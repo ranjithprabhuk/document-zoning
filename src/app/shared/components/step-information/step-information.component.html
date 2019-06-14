@@ -1,0 +1,12 @@
+<div class="d-flex step-container justify-content-center flex-column bg-white">
+  <h4>
+    Step - {{step}}
+  </h4>
+  <div>
+    <span class="fa {{icon}} fa-3x bg-primary text-white"></span>
+  </div>
+  <h3 class="text-primary">
+    {{title}}
+  </h3>
+  <span *ngIf="step !== 4" class="fa fa-long-arrow-right fa-3x text-primary arrow-icon"></span>
+</div>
