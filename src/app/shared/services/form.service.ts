@@ -15,12 +15,26 @@ import {
     NumberComponent,
     EmailComponent
   } from '../../components/form-generator/form-components/index';
+import { ConfigService } from './config.service';
 
 
 @Injectable()
 export class FormService {
+
+    public mapping = [];
+
+    constructor(public configService: ConfigService) {
+        this.getMapping();
+    }
+
+    private getMapping() {
+        this.configService.getControlMapping().subscribe((value) => {
+            this.mapping = value as [];
+        });
+    }
+
     // TODO: add logic to convert form data to form items
-    getForm() {
+    public getForm() {
         const formComponents = [];
         const formdata = [
             { label: 'Non Unit Linked', value: '', fieldset: 'Form Details' },
@@ -39,7 +53,7 @@ export class FormService {
         let currentFieldset = '';
         let lastControlData;
         formdata.forEach((data) => {
-            const controldata = new Control();
+            const controldata = new Control(this.mapping);
             lastControlData = controldata;
             let formitem;
             controldata.map(data);
