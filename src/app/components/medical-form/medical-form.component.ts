@@ -46,12 +46,11 @@ export class MedicalFormComponent implements OnInit, OnDestroy {
   }
 
   private getCurrentFocus(): void {
-    let i = 1;
     this.currentFocus = this.sharedService.currentFocus.subscribe((control) => {
       if (control && this.isPdfLoaded) {
         this.showHighlighter = true;
         this.setHighlighter();
-        this.pdfFile = {...this.pdfFile, PageNumber: i++ };
+        this.pdfFile = {...this.pdfFile};
       } else {
         this.showHighlighter = false;
       }
