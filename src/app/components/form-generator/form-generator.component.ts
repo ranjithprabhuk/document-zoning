@@ -1,7 +1,5 @@
-import { Component, OnInit, ComponentFactoryResolver, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, ComponentFactoryResolver, ViewChild, Input } from '@angular/core';
 import { FormDirective } from '../form.directive';
-import { FormItem } from '../../shared/models/form-item';
-import { FormService } from '../../shared/services/form.service';
 import { FormComponent } from '../../shared/models/form';
 
 @Component({
@@ -9,26 +7,22 @@ import { FormComponent } from '../../shared/models/form';
   templateUrl: './form-generator.component.html',
   styleUrls: ['./form-generator.component.scss']
 })
-export class FormGeneratorComponent implements OnInit, AfterViewInit {
+export class FormGeneratorComponent {
   @ViewChild(FormDirective) formHost: FormDirective;
+  @Input() set formConfig(config: any[]) {
+    if (config && config.length > 0) {
+      this.generateForm(config);
+    }
+  }
 
   constructor(
-    private componentFactoryResolver: ComponentFactoryResolver,
-    private formService: FormService
-    ) {
-
-    }
-
-  ngOnInit(): void {
+    private componentFactoryResolver: ComponentFactoryResolver
+  ) {
 
   }
 
-  ngAfterViewInit(): void {
-    setTimeout(() => this.generateForm(), 500);
-  }
 
-  public generateForm(): void {
-    const form = this.formService.getForm();
+  public generateForm(form): void {
     if (this.formHost) {
       const { viewContainerRef } = this.formHost;
       if (viewContainerRef) {

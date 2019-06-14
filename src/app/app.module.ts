@@ -3,29 +3,31 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 
-import { AccordionModule, ModalModule } from 'ngx-bootstrap';
+import { AccordionModule, ModalModule, CollapseModule } from 'ngx-bootstrap';
 import { FabricModule, FABRIC_CONFIG } from 'ngx-fabric-wrapper';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
-import { MedicalFormComponent, UploadFormComponent, FormGeneratorComponent } from './components';
+import {
+  MedicalFormComponent,
+  UploadFormComponent,
+  FormGeneratorComponent,
+  PdfHighlighterComponent
+} from './components';
 import { FormDirective } from './components/form.directive';
 import { FormService} from './shared/services/form.service';
 import {
   InputComponent,
   DropdownComponent,
   RadioComponent,
-  FieldSetEndComponent,
-  FieldSetStartComponent,
   TextAreaComponent,
   CheckboxComponent,
   DateComponent,
   TelComponent,
   NumberComponent,
   EmailComponent
-} from './components/form-generator/form-components/index';
-import { PdfHighlighterComponent } from './components/pdf-highlighter/pdf-highlighter.component';
+} from './components/form-generator/form-components';
 
 @NgModule({
   declarations: [
@@ -37,8 +39,6 @@ import { PdfHighlighterComponent } from './components/pdf-highlighter/pdf-highli
     InputComponent,
     DropdownComponent,
     RadioComponent,
-    FieldSetEndComponent,
-    FieldSetStartComponent,
     TextAreaComponent,
     CheckboxComponent,
     DateComponent,
@@ -53,6 +53,7 @@ import { PdfHighlighterComponent } from './components/pdf-highlighter/pdf-highli
     FormsModule,
     AccordionModule.forRoot(),
     ModalModule.forRoot(),
+    CollapseModule.forRoot(),
     AppRoutingModule,
     FabricModule,
     SharedModule
@@ -67,8 +68,6 @@ import { PdfHighlighterComponent } from './components/pdf-highlighter/pdf-highli
     DropdownComponent,
     RadioComponent,
     TextAreaComponent,
-    FieldSetEndComponent,
-    FieldSetStartComponent,
     CheckboxComponent,
     DateComponent,
     TelComponent,

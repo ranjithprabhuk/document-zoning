@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Pdf, Highlighter } from '@shared/models';
 import { SharedService } from '@shared/shared.service';
+import { FormService } from '@shared/services/form.service';
 
 @Component({
   selector: 'app-medical-form',
@@ -12,15 +13,18 @@ export class MedicalFormComponent implements OnInit, OnDestroy {
   public uploadedFile: Subscription = null;
   public pdfFile: Pdf = null;
   public highlighter: Highlighter = null;
+  public formGroups: any = [];
 
   constructor(
     private sharedService: SharedService,
+    private formService: FormService,
   ) {
 
   }
 
   public ngOnInit(): void {
     this.getUploadedFile();
+    this.formGroups = this.formService.getForm();
   }
 
   public getUploadedFile(): void {
