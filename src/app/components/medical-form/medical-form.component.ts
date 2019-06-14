@@ -15,8 +15,8 @@ export class MedicalFormComponent implements OnInit, OnDestroy {
   public highlighter: Highlighter = null;
   public formGroups: any = [];
   public currentFocus: Subscription = null;
-  public showHighlighter: boolean = false;
-  public isPdfLoaded: boolean = false;
+  public showHighlighter = false;
+  public isPdfLoaded = false;
 
   constructor(
     private sharedService: SharedService,
@@ -50,7 +50,7 @@ export class MedicalFormComponent implements OnInit, OnDestroy {
       if (control && this.isPdfLoaded) {
         this.showHighlighter = true;
         this.setHighlighter();
-        this.pdfFile = {...this.pdfFile};
+        this.pdfFile = { ...this.pdfFile };
       } else {
         this.showHighlighter = false;
       }
@@ -66,7 +66,7 @@ export class MedicalFormComponent implements OnInit, OnDestroy {
 
   private setHighlighter(): void {
     this.highlighter = new Highlighter();
-    this.highlighter.setPosition(Math.floor(Math.random()*(300-25+1)+25), Math.floor(Math.random()*(300-25+1)+25), 200, 50);
+    this.highlighter.setPosition(Math.floor(Math.random() * (300 - 25 + 1) + 25), Math.floor(Math.random() * (300 - 25 + 1) + 25), 200, 50);
   }
 
   public ngOnDestroy(): void {
