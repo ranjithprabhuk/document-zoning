@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { SharedService } from '../../shared/shared.service';
+import { FormType, FORM_TYPES } from '@shared/constants';
 
 @Component({
   selector: 'app-upload-form',
@@ -7,8 +9,15 @@ import { SharedService } from '../../shared/shared.service';
   styleUrls: ['./upload-form.component.scss']
 })
 export class UploadFormComponent implements OnInit {
+  public formTypes: FormType[] = FORM_TYPES;
+  public selectedFormType: string = FORM_TYPES[0].value;
+  public modalRef: BsModalRef;
+
+  @ViewChild('modalTemplate') modalTemplate: TemplateRef<any>;
+
   constructor(
     private sharedService: SharedService,
+    private modalService: BsModalService
   ) {
 
   }
@@ -36,9 +45,21 @@ export class UploadFormComponent implements OnInit {
     fileReader.onload = () => {
       const typedarray = new Uint8Array(fileReader.result);
       this.sharedService.updateFile(typedarray);
+      this.openModal(this.modalTemplate);
     };
 
     fileReader.readAsArrayBuffer(uploadedFile);
   }
 
+  public openModal(template: TemplateRef<any>): void {
+    this.modalRef = this.modalService.show(template, {class: 'modal-md'});
+  }
+
+  public navigateToForm(): void {
+    this.modalRef.hide();
+  }
+
+  public cancel(): void {
+    this.modalRef.hide();
+  }
 }

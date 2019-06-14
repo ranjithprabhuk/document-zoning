@@ -1,10 +1,34 @@
 <div class="row">
-    <section class="col-12">
-      <div class="upload-button-container">
-          <input id="pdf-file" type="file" accept="application/pdf" (change)="handleFileUpload($event.target.files)">
-          <label class="btn btn-default" for="pdf-file">
-            <span class="fa fa-upload"></span>Choose a file
-          </label>
-      </div>
-    </section>
+  <section class="col-12">
+    <div class="upload-button-container">
+      <input id="pdf-file" type="file" accept="application/pdf" (change)="handleFileUpload($event.target.files)">
+      <label class="btn btn-default" for="pdf-file">
+        <span class="fa fa-upload"></span>Choose a file
+      </label>
+    </div>
+  </section>
+</div>
+<ng-template #modalTemplate>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Form type</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
   </div>
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-12">
+        <div class="form-group">
+          <label for="form-type-selection">Select the Form type:</label>
+          <select id="form-type-selection" class="form-control" [(ngModel)]="selectedFormType">
+            <option *ngFor="let formType of formTypes" [attr.id]="formType.id" [value]="formType.value">{{formType.value}}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-primary" (click)="navigateToForm()">Navigate to Form</button>
+    <button type="button" class="btn btn-danger" (click)="cancel()">Cancel</button>
+  </div>
+</ng-template>
