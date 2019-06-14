@@ -25,6 +25,8 @@ import {
   EmailComponent
 } from './components/form-generator/form-components/index';
 import { PdfHighlighterComponent } from './components/pdf-highlighter/pdf-highlighter.component';
+import { ConfigService } from './shared/services/config.service';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -52,11 +54,14 @@ import { PdfHighlighterComponent } from './components/pdf-highlighter/pdf-highli
     AccordionModule.forRoot(),
     AppRoutingModule,
     FabricModule,
-    SharedModule
+    SharedModule,
+    HttpClientModule
   ],
   providers: [
     FormService,
     { provide: FABRIC_CONFIG, useValue: {} },
+    ConfigService,
+    HttpClient
   ],
   bootstrap: [AppComponent],
   entryComponents: [
