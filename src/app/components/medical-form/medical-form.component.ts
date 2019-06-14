@@ -24,7 +24,9 @@ export class MedicalFormComponent implements OnInit, OnDestroy {
 
   public ngOnInit(): void {
     this.getUploadedFile();
-    this.formGroups = this.formService.getForm();
+    this.formService.getForm().then((data) => {
+      this.formGroups = data;
+    });
   }
 
   public getUploadedFile(): void {

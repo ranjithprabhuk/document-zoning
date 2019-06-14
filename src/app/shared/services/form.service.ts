@@ -22,27 +22,28 @@ export class FormService {
     form;
     mapping = [];
     constructor(private configService: ConfigService) {
-        this.buildForm();
         this.getMapping();
     }
     // TODO: add logic to convert form data to form items
-    buildForm() {
-        this.configService.getNonMedicalForm().subscribe( formData => {
-            this.form = formData;
+    public getForm() {
+        return this.configService.getNonMedicalForm().toPromise().then((formData) => {
+            return Promise.resolve(this.buildForm(formData));
         });
     }
     private getMapping() {
-        this.configService.getControlMapping().subscribe((value) => {
-            this.mapping = value as any[];
-        });
+        if (!this.mapping || this.mapping.length === 0) {
+            this.configService.getControlMapping().toPromise().then((value) => {
+                this.mapping = value as any[];
+            });
+        }
     }
 
     // TODO: add logic to convert form data to form items
-    getForm() {
+    public buildForm(formData) {
         let formComponents = [];
         const groupedFormComponents: any[] = [];
 
-        this.form.forEach((data) => {
+        formData.forEach((data) => {
             formComponents = [];
             data.formElements.forEach((formElements) => {
                 const controldata = new Control(this.mapping);
