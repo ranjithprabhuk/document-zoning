@@ -18,7 +18,6 @@ export class FormGeneratorComponent {
   constructor(
     private componentFactoryResolver: ComponentFactoryResolver
   ) {
-
   }
 
 

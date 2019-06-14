@@ -1,5 +1,27 @@
 [
     {
+        "formGroup": "Personal Details",
+        "formGroupName": "personalDetails",
+        "formElements": [
+            {
+                "label": "First Name",
+                "value": ""
+            },
+            {
+                "label": "Middle Name",
+                "value": ""
+            },
+            {
+                "label": "Last Name",
+                "value": ""
+            },
+            {
+                "label": "Address",
+                "value": ""
+            }
+        ]
+    },
+    {
         "formGroup": "Form Details",
         "formGroupId": "formDetails",
         "formElements": [

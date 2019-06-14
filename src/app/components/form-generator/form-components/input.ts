@@ -5,8 +5,8 @@ import { FormComponent } from '../../../shared/models/form';
 @Component({
   template: `
     <div class="form-group">
-    <label class="col-sm-2 control-label">{{data.labelText}}</label>
-    <div class="col-sm-10">
+    <label class="col-12 control-label">{{data.labelText}}</label>
+    <div class="col-12">
     <input type="input" class="form-control" id="{{data.labelText}}" placeholder="{{data.value}}">
     </div>
     </div>
