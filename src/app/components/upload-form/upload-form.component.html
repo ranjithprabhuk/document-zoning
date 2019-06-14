@@ -1,5 +1,10 @@
 <div class="row">
     <section class="col-12">
-      <input id="pdf-file" type="file" (change)="handleFileUpload($event.target.files)">
+      <div class="upload-button-container">
+          <input id="pdf-file" type="file" (change)="handleFileUpload($event.target.files)">
+          <label class="btn btn-default" for="pdf-file">
+            <span class="fa fa-upload"></span>Choose a file
+          </label>
+      </div>
     </section>
   </div>
