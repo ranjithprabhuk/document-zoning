@@ -1,8 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
 
-import { AccordionModule } from 'ngx-bootstrap';
+import { AccordionModule, ModalModule } from 'ngx-bootstrap';
 import { FabricModule, FABRIC_CONFIG } from 'ngx-fabric-wrapper';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -51,7 +52,9 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    FormsModule,
     AccordionModule.forRoot(),
+    ModalModule.forRoot(),
     AppRoutingModule,
     FabricModule,
     SharedModule,

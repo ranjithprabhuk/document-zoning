@@ -13,7 +13,7 @@ const routes: Routes = [
     component: UploadFormComponent,
   },
   {
-    path: 'medical-form',
+    path: 'form/:formType',
     component: MedicalFormComponent
   }
 ];
