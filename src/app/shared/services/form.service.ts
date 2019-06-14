@@ -13,8 +13,7 @@ import {
     NumberComponent,
     EmailComponent
 } from '../../components/form-generator/form-components';
-
-import { ConfigService } from '@shared/services';
+import { ConfigService } from './config.service';
 
 @Injectable()
 export class FormService {

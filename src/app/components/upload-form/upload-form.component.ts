@@ -1,7 +1,7 @@
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { SharedService } from '../../shared/shared.service';
-import { FormType, FORM_TYPES } from '@shared/constants';
+import { FormType, FORM_TYPES, STEP_INFORMATION } from '@shared/constants';
 import { Router } from '@angular/router';
 
 @Component({
@@ -13,6 +13,7 @@ export class UploadFormComponent implements OnInit {
   public formTypes: FormType[] = FORM_TYPES;
   public selectedFormType: string = FORM_TYPES[0].value;
   public modalRef: BsModalRef;
+  public stepInformations = STEP_INFORMATION;
 
   @ViewChild('modalTemplate') modalTemplate: TemplateRef<any>;
 
