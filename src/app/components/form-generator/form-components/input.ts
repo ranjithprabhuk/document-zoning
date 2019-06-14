@@ -8,7 +8,8 @@ import { SharedService } from '@shared/shared.service';
     <div class="form-group">
     <label class="col-sm-2 control-label">{{data.labelText}}</label>
     <div class="col-sm-10">
-    <input type="input" class="form-control" id="{{data.labelText}}" placeholder="{{data.value}}" (focus)="focusFunction($event)" (focusout)="focusOutFunction($event)">
+    <input type="input" class="form-control" id="{{data.labelText}}" placeholder="{{data.value}}"
+    (focus)="focusFunction()" (focusout)="focusOutFunction()">
     </div>
     </div>
   `
@@ -16,15 +17,15 @@ import { SharedService } from '@shared/shared.service';
 export class InputComponent implements FormComponent {
   @Input() data: any;
 
-  constructor(private sharedService: SharedService){
+  constructor(private sharedService: SharedService) {
 
   }
 
-  public focusFunction($event){
-   this.sharedService.setCurrentFocus(this.data);
+  public focusFunction() {
+    this.sharedService.setCurrentFocus(this.data);
   }
 
-  public focusOutFunction($event){
+  public focusOutFunction() {
     this.sharedService.setCurrentFocus(null);
   }
 }

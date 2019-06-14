@@ -57,10 +57,8 @@ export class MedicalFormComponent implements OnInit, OnDestroy {
   }
 
   public getCurrentFocus(): void {
-    this.currentFocus = this.sharedService.currentFocus.subscribe((control)=>{
-      console.log('getCurrentFocus', control);
+    this.currentFocus = this.sharedService.currentFocus.subscribe((control) => {
     });
-
   }
 
 
