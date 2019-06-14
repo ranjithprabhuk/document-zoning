@@ -12,7 +12,7 @@ import {
     TelComponent,
     NumberComponent,
     EmailComponent
-} from '../../components/form-generator/form-components/index';
+} from '../../components/form-generator/form-components';
 
 
 @Injectable()
@@ -47,58 +47,34 @@ export class FormService {
                 ]
             },
         ];
-        let prevFieldset = '';
-        let currentFieldset = '';
-        let lastControlData;
+
         formdata.forEach((data) => {
             formComponents = [];
             data.formElements.forEach((formElements) => {
                 const controldata = new Control();
-                lastControlData = controldata;
-                let formitem;
                 controldata.map(formElements);
-                currentFieldset = controldata.fieldset;
-
-                switch (controldata.controlType) {
-                    case ControlType.CHECKBOX:
-                        formitem = new FormItem(CheckboxComponent, controldata);
-                        break;
-                    case ControlType.DATE:
-                        formitem = new FormItem(DateComponent, controldata);
-                        break;
-                    case ControlType.DROPDOWN:
-                        formitem = new FormItem(DropdownComponent, controldata);
-                        break;
-                    case ControlType.EMAIL:
-                        formitem = new FormItem(EmailComponent, controldata);
-                        break;
-                    case ControlType.INPUT:
-                        formitem = new FormItem(InputComponent, controldata);
-                        break;
-                    case ControlType.NONE:
-                        console.log('Unknown Control Type : ', controldata);
-                        break;
-                    case ControlType.NUMBER:
-                        formitem = new FormItem(NumberComponent, controldata);
-                        break;
-                    case ControlType.RADIO:
-                        formitem = new FormItem(RadioComponent, controldata);
-                        break;
-                    case ControlType.TEL:
-                        formitem = new FormItem(TelComponent, controldata);
-                        break;
-                    case ControlType.TEXTAREA:
-                        formitem = new FormItem(TextAreaComponent, controldata);
-                        break;
-                }
-                formComponents.push(formitem);
+                formComponents.push(this.getFormItem(controldata));
             });
             groupedFormComponents.push({
                 header: data.formGroup,
                 formComponents
-            })
+            });
         });
 
         return groupedFormComponents;
+    }
+
+    private getFormItem(controldata): FormItem {
+        switch (controldata.controlType) {
+            case ControlType.CHECKBOX: return new FormItem(CheckboxComponent, controldata);
+            case ControlType.DATE: return new FormItem(DateComponent, controldata);
+            case ControlType.DROPDOWN: return new FormItem(DropdownComponent, controldata);
+            case ControlType.EMAIL: return new FormItem(EmailComponent, controldata);
+            case ControlType.INPUT: return new FormItem(InputComponent, controldata);
+            case ControlType.NUMBER: return new FormItem(NumberComponent, controldata);
+            case ControlType.RADIO: return new FormItem(RadioComponent, controldata);
+            case ControlType.TEL: return new FormItem(TelComponent, controldata);
+            case ControlType.TEXTAREA: return new FormItem(TextAreaComponent, controldata);
+        }
     }
 }
