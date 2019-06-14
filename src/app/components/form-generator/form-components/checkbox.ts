@@ -11,6 +11,6 @@ import { FormComponent } from '../../../shared/models/form';
   </div>
   `
 })
-export class RadioComponent implements FormComponent {
+export class CheckboxComponent implements FormComponent {
   @Input() data: any;
 }

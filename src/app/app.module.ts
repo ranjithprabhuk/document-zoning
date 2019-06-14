@@ -11,12 +11,19 @@ import { SharedModule } from './shared/shared.module';
 import { MedicalFormComponent, UploadFormComponent, FormGeneratorComponent } from './components';
 import { FormDirective } from './components/form.directive';
 import { FormService} from './shared/services/form.service';
-import { InputComponent} from './components/form-generator/form-components/input';
-import { DropdownComponent} from './components/form-generator/form-components/dropdown';
-import { RadioComponent} from './components/form-generator/form-components/radio';
-import { FieldSetEndComponent} from './components/form-generator/form-components/fieldsetend';
-import { FieldSetStartComponent} from './components/form-generator/form-components/fieldsetstart';
-import { TextAreaComponent} from './components/form-generator/form-components/textarea';
+import {
+  InputComponent,
+  DropdownComponent,
+  RadioComponent,
+  FieldSetEndComponent,
+  FieldSetStartComponent,
+  TextAreaComponent,
+  CheckboxComponent,
+  DateComponent,
+  TelComponent,
+  NumberComponent,
+  EmailComponent
+} from './components/form-generator/form-components/index';
 import { PdfHighlighterComponent } from './components/pdf-highlighter/pdf-highlighter.component';
 
 @NgModule({
@@ -32,6 +39,11 @@ import { PdfHighlighterComponent } from './components/pdf-highlighter/pdf-highli
     FieldSetEndComponent,
     FieldSetStartComponent,
     TextAreaComponent,
+    CheckboxComponent,
+    DateComponent,
+    TelComponent,
+    NumberComponent,
+    EmailComponent,
     PdfHighlighterComponent
   ],
   imports: [
@@ -54,6 +66,11 @@ import { PdfHighlighterComponent } from './components/pdf-highlighter/pdf-highli
     TextAreaComponent,
     FieldSetEndComponent,
     FieldSetStartComponent,
+    CheckboxComponent,
+    DateComponent,
+    TelComponent,
+    NumberComponent,
+    EmailComponent
   ]
 })
 export class AppModule { }
