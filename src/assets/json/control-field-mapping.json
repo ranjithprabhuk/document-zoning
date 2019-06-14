@@ -31,12 +31,12 @@
     "sex": "RADIO",
     "gender": "RADIO",
     "ageproof": "RADIO",
-    "idproof": "RADIO",
-    "addressproof": "RADIO",
-    "maritalstatus": "RADIO",
-    "nonunitlinked": "RADIO",
-    "unitlinked": "RADIO",
-    "bancassurance": "RADIO",
-    "employee": "RADIO",
-    "individual": "RADIO"
+    "idproof": "CHECKBOX",
+    "addressproof": "CHECKBOX",
+    "maritalstatus": "CHECKBOX",
+    "nonunitlinked": "CHECKBOX",
+    "unitlinked": "CHECKBOX",
+    "bancassurance": "CHECKBOX",
+    "employee": "CHECKBOX",
+    "individual": "CHECKBOX"
 }
