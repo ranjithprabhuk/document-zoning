@@ -15,18 +15,24 @@ import {
     NumberComponent,
     EmailComponent
   } from '../../components/form-generator/form-components/index';
-import { ConfigService } from './config.service';
 
+import { ConfigService } from '@shared/services';
 
 @Injectable()
 export class FormService {
 
-    public mapping = [];
-
-    constructor(public configService: ConfigService) {
+    form;
+    mapping = [];
+    constructor(private configService: ConfigService) {
+        this.buildForm();
         this.getMapping();
     }
-
+    // TODO: add logic to convert form data to form items
+    buildForm() {
+        this.configService.getNonMedicalForm().subscribe( formData => {
+            this.form = formData;
+        });
+    }
     private getMapping() {
         this.configService.getControlMapping().subscribe((value) => {
             this.mapping = value as [];
@@ -36,23 +42,10 @@ export class FormService {
     // TODO: add logic to convert form data to form items
     public getForm() {
         const formComponents = [];
-        const formdata = [
-            { label: 'Non Unit Linked', value: '', fieldset: 'Form Details' },
-            { label: 'Unit Linked', value: '', fieldset: 'Form Details' },
-            { label: 'UIN', value: '', fieldset: 'Form Details' },
-            { label: 'CIN', value: 'U62347543ABCFDA87', fieldset: 'Form Details' },
-            { label: 'Proposal No', value: '', fieldset: 'Agent Details' },
-            { label: 'Bank Ref Code', value: '', fieldset: 'Agent Details' },
-            { label: 'STM Code', value: '', fieldset: 'Agent Details' },
-            { label: 'STM Branch', value: '', fieldset: 'Agent Details' },
-            { label: 'Employee', value: '', fieldset: 'Agent Details' },
-            { label: 'Individual', value: '', fieldset: 'Agent Details' },
-            { label: 'Bancassurance', value: '', fieldset: 'Agent Details' },
-            { label: 'Unit Linked', value: '', fieldset: 'Agent Details' }];
         let prevFieldset = '';
         let currentFieldset = '';
         let lastControlData;
-        formdata.forEach((data) => {
+        this.form.forEach((data) => {
             const controldata = new Control(this.mapping);
             lastControlData = controldata;
             let formitem;

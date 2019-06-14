@@ -1,0 +1,62 @@
+[
+    {
+        "label": "Non Unit Linked",
+        "value": "",
+        "fieldset": "Form Details"
+    },
+    {
+        "label": "Unit Linked",
+        "value": "",
+        "fieldset": "Form Details"
+    },
+    {
+        "label": "UIN",
+        "value": "",
+        "fieldset": "Form Details"
+    },
+    {
+        "label": "CIN",
+        "value": "U62347543ABCFDA87",
+        "fieldset": "Form Details"
+    },
+    {
+        "label": "Proposal No",
+        "value": "",
+        "fieldset": "Agent Details"
+    },
+    {
+        "label": "Bank Ref Code",
+        "value": "",
+        "fieldset": "Agent Details"
+    },
+    {
+        "label": "STM Code",
+        "value": "",
+        "fieldset": "Agent Details"
+    },
+    {
+        "label": "STM Branch",
+        "value": "",
+        "fieldset": "Agent Details"
+    },
+    {
+        "label": "Employee",
+        "value": "",
+        "fieldset": "Agent Details"
+    },
+    {
+        "label": "Individual",
+        "value": "",
+        "fieldset": "Agent Details"
+    },
+    {
+        "label": "Bancassurance",
+        "value": "",
+        "fieldset": "Agent Details"
+    },
+    {
+        "label": "Unit Linked",
+        "value": "",
+        "fieldset": "Agent Details"
+    }
+]
