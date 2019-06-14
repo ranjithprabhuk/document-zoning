@@ -20,11 +20,11 @@ export class FormGeneratorComponent implements OnInit, AfterViewChecked {
     }
 
   ngOnInit(): void {
-
+    this.generateForm();
   }
 
   ngAfterViewChecked(): void {
-    this.generateForm();
+
   }
 
   public generateForm(): void {
