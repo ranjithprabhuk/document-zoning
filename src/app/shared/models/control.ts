@@ -6,7 +6,6 @@ export class Control {
     public value: any;
     public isRequired: boolean;
     public isEnabled: boolean;
-    public fieldset: string;
 
     constructor(public dictionary) {
         this.labelText = '';
@@ -14,7 +13,6 @@ export class Control {
         this.value = '';
         this.isRequired = false;
         this.isEnabled = false;
-        this.fieldset = '';
     }
 
     public map(data) {
@@ -23,7 +21,6 @@ export class Control {
         this.value = data.value;
         this.isRequired = true;
         this.isEnabled = true;
-        this.fieldset = data.fieldset;
     }
 
     private GetControlType(data: string): ControlType {

@@ -1,62 +1,62 @@
 [
     {
-        "label": "Non Unit Linked",
-        "value": "",
-        "fieldset": "Form Details"
+        "formGroup": "Form Details",
+        "formGroupId": "formDetails",
+        "formElements": [
+            {
+                "label": "Non Unit Linked",
+                "value": ""
+            },
+            {
+                "label": "Unit Linked",
+                "value": ""
+            },
+            {
+                "label": "UIN",
+                "value": ""
+            },
+            {
+                "label": "CIN",
+                "value": "U62347543ABCFDA87"
+            }
+        ]
     },
     {
-        "label": "Unit Linked",
-        "value": "",
-        "fieldset": "Form Details"
-    },
-    {
-        "label": "UIN",
-        "value": "",
-        "fieldset": "Form Details"
-    },
-    {
-        "label": "CIN",
-        "value": "U62347543ABCFDA87",
-        "fieldset": "Form Details"
-    },
-    {
-        "label": "Proposal No",
-        "value": "",
-        "fieldset": "Agent Details"
-    },
-    {
-        "label": "Bank Ref Code",
-        "value": "",
-        "fieldset": "Agent Details"
-    },
-    {
-        "label": "STM Code",
-        "value": "",
-        "fieldset": "Agent Details"
-    },
-    {
-        "label": "STM Branch",
-        "value": "",
-        "fieldset": "Agent Details"
-    },
-    {
-        "label": "Employee",
-        "value": "",
-        "fieldset": "Agent Details"
-    },
-    {
-        "label": "Individual",
-        "value": "",
-        "fieldset": "Agent Details"
-    },
-    {
-        "label": "Bancassurance",
-        "value": "",
-        "fieldset": "Agent Details"
-    },
-    {
-        "label": "Unit Linked",
-        "value": "",
-        "fieldset": "Agent Details"
+        "formGroup": "Agent Details",
+        "formGroupId": "formDetails",
+        "formElements": [
+            {
+                "label": "Proposal No",
+                "value": ""
+            },
+            {
+                "label": "Bank Ref Code",
+                "value": ""
+            },
+            {
+                "label": "STM Code",
+                "value": ""
+            },
+            {
+                "label": "STM Branch",
+                "value": ""
+            },
+            {
+                "label": "Employee",
+                "value": ""
+            },
+            {
+                "label": "Individual",
+                "value": ""
+            },
+            {
+                "label": "Bancassurance",
+                "value": ""
+            },
+            {
+                "label": "Unit Linked",
+                "value": ""
+            }
+        ]
     }
 ]
