@@ -13,4 +13,7 @@ export class ConfigService {
     const url = 'assets/json/non-medical-form.json';
     return this.http.get(url);
   }
+  public getControlMapping() {
+    return this.http.get('./assets/json/control-field-mapping.json');
+  }
 }

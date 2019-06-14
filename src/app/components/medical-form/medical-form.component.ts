@@ -13,11 +13,7 @@ export class MedicalFormComponent implements OnInit, OnDestroy {
   public pdfFile: Pdf = null;
   public highlighter: Highlighter = null;
 
-  constructor(
-    private sharedService: SharedService,
-  ) {
-
-  }
+  constructor(private sharedService: SharedService) {}
 
   public ngOnInit(): void {
     this.getUploadedFile();

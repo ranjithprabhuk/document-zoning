@@ -1,9 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClient , HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
 
-import { AccordionModule } from 'ngx-bootstrap';
+import { AccordionModule, ModalModule } from 'ngx-bootstrap';
 import { FabricModule, FABRIC_CONFIG } from 'ngx-fabric-wrapper';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -12,13 +13,21 @@ import { SharedModule } from './shared/shared.module';
 import { MedicalFormComponent, UploadFormComponent, FormGeneratorComponent } from './components';
 import { FormDirective } from './components/form.directive';
 import { FormService} from './shared/services/form.service';
-import { InputComponent} from './components/form-generator/form-components/input';
-import { DropdownComponent} from './components/form-generator/form-components/dropdown';
-import { RadioComponent} from './components/form-generator/form-components/radio';
-import { FieldSetEndComponent} from './components/form-generator/form-components/fieldsetend';
-import { FieldSetStartComponent} from './components/form-generator/form-components/fieldsetstart';
-import { TextAreaComponent} from './components/form-generator/form-components/textarea';
+import {
+  InputComponent,
+  DropdownComponent,
+  RadioComponent,
+  FieldSetEndComponent,
+  FieldSetStartComponent,
+  TextAreaComponent,
+  CheckboxComponent,
+  DateComponent,
+  TelComponent,
+  NumberComponent,
+  EmailComponent
+} from './components/form-generator/form-components/index';
 import { PdfHighlighterComponent } from './components/pdf-highlighter/pdf-highlighter.component';
+import { ConfigService } from './shared/services/config.service';
 
 @NgModule({
   declarations: [
@@ -33,20 +42,30 @@ import { PdfHighlighterComponent } from './components/pdf-highlighter/pdf-highli
     FieldSetEndComponent,
     FieldSetStartComponent,
     TextAreaComponent,
+    CheckboxComponent,
+    DateComponent,
+    TelComponent,
+    NumberComponent,
+    EmailComponent,
     PdfHighlighterComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    FormsModule,
     AccordionModule.forRoot(),
+    ModalModule.forRoot(),
     AppRoutingModule,
     FabricModule,
-    SharedModule
+    SharedModule,
+    HttpClientModule
   ],
   providers: [
     FormService,
     { provide: FABRIC_CONFIG, useValue: {} },
+    ConfigService,
+    HttpClient
   ],
   bootstrap: [AppComponent],
   entryComponents: [
@@ -56,6 +75,11 @@ import { PdfHighlighterComponent } from './components/pdf-highlighter/pdf-highli
     TextAreaComponent,
     FieldSetEndComponent,
     FieldSetStartComponent,
+    CheckboxComponent,
+    DateComponent,
+    TelComponent,
+    NumberComponent,
+    EmailComponent
   ]
 })
 export class AppModule { }

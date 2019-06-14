@@ -7,11 +7,11 @@ import { FormComponent } from '../../../shared/models/form';
     <div class="form-group">
     <label class="col-sm-2 control-label">{{data.labelText}}</label>
     <div class="col-sm-10">
-    <input type="input" class="form-control" id="{{data.labelText}}" placeholder="{{data.value}}">
+    <input type="number" class="form-control" id="{{data.labelText}}" placeholder="{{data.value}}">
     </div>
     </div>
   `
 })
-export class InputComponent implements FormComponent {
+export class NumberComponent implements FormComponent {
   @Input() data: any;
 }
