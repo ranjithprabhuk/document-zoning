@@ -1,6 +1,6 @@
-import { Component, Input } from '@angular/core';
-
-import { FormComponent } from '../../../shared/models/form';
+import { Component } from '@angular/core';
+import { SharedService } from '@shared/shared.service';
+import { BaseComponent } from './basecomponent';
 
 @Component({
   template: `
@@ -11,6 +11,8 @@ import { FormComponent } from '../../../shared/models/form';
   </div>
   `
 })
-export class RadioComponent implements FormComponent {
-  @Input() data: any;
+export class RadioComponent extends BaseComponent {
+  constructor(public sharedService: SharedService) {
+    super(sharedService);
+  }
 }

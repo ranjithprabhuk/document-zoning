@@ -1,7 +1,7 @@
 
-import { Component, Input } from '@angular/core';
-import { FormComponent } from '../../../shared/models/form';
+import { Component } from '@angular/core';
 import { SharedService } from '@shared/shared.service';
+import { BaseComponent } from './basecomponent';
 
 @Component({
   template: `
@@ -14,18 +14,8 @@ import { SharedService } from '@shared/shared.service';
     </div>
   `
 })
-export class InputComponent implements FormComponent {
-  @Input() data: any;
-
-  constructor(private sharedService: SharedService) {
-
-  }
-
-  public focusFunction() {
-    this.sharedService.setCurrentFocus(this.data);
-  }
-
-  public focusOutFunction() {
-    this.sharedService.setCurrentFocus(null);
+export class InputComponent extends BaseComponent {
+  constructor(public sharedService: SharedService) {
+    super(sharedService);
   }
 }
