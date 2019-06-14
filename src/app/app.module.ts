@@ -3,10 +3,8 @@ import { NgModule } from '@angular/core';
 import { HttpClient , HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
-
 import { AccordionModule, ModalModule, CollapseModule } from 'ngx-bootstrap';
 import { FabricModule, FABRIC_CONFIG } from 'ngx-fabric-wrapper';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';

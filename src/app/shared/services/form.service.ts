@@ -1,5 +1,5 @@
 import { Control } from './../models/control';
-import { ControlType } from './../models/control-type';
+import { ControlType } from '../constants/control-type';
 import { Injectable } from '@angular/core';
 import { FormItem } from '../models/form-item';
 import {
@@ -46,8 +46,8 @@ export class FormService {
         formData.forEach((data) => {
             formComponents = [];
             data.formElements.forEach((formElements) => {
-                const controldata = new Control(this.mapping);
-                controldata.map(formElements);
+                const controldata = new Control();
+                controldata.map(formElements, this.mapping);
                 formComponents.push(this.getFormItem(controldata));
             });
             groupedFormComponents.push({

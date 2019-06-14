@@ -14,6 +14,7 @@ export class MedicalFormComponent implements OnInit, OnDestroy {
   public pdfFile: Pdf = null;
   public highlighter: Highlighter = null;
   public formGroups: any = [];
+  public currentFocus: Subscription = null;
 
   constructor(
     private sharedService: SharedService,
@@ -24,6 +25,7 @@ export class MedicalFormComponent implements OnInit, OnDestroy {
 
   public ngOnInit(): void {
     this.getUploadedFile();
+    this.getCurrentFocus();
     this.formService.getForm().then((data) => {
       this.formGroups = data;
     });
@@ -51,5 +53,15 @@ export class MedicalFormComponent implements OnInit, OnDestroy {
   public ngOnDestroy(): void {
     this.uploadedFile.unsubscribe();
     this.sharedService.updateFile(null);
+    this.currentFocus.unsubscribe();
   }
+
+  public getCurrentFocus(): void {
+    this.currentFocus = this.sharedService.currentFocus.subscribe((control)=>{
+      console.log('getCurrentFocus', control);
+    });
+
+  }
+
+
 }
