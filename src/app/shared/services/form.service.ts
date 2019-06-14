@@ -14,44 +14,38 @@ import {
     EmailComponent
 } from '../../components/form-generator/form-components';
 
+import { ConfigService } from '@shared/services';
 
 @Injectable()
 export class FormService {
+
+    form;
+    mapping = [];
+    constructor(private configService: ConfigService) {
+        this.buildForm();
+        this.getMapping();
+    }
+    // TODO: add logic to convert form data to form items
+    buildForm() {
+        this.configService.getNonMedicalForm().subscribe( formData => {
+            this.form = formData;
+        });
+    }
+    private getMapping() {
+        this.configService.getControlMapping().subscribe((value) => {
+            this.mapping = value as any[];
+        });
+    }
+
     // TODO: add logic to convert form data to form items
     getForm() {
         let formComponents = [];
         const groupedFormComponents: any[] = [];
-        const formdata = [
-            {
-                formGroup: 'Form Details',
-                formGroupId: 'formDetails',
-                formElements: [
-                    { label: 'Non Unit Linked', value: '', fieldset: 'Form Details' },
-                    { label: 'Unit Linked', value: '', fieldset: 'Form Details' },
-                    { label: 'UIN', value: '', fieldset: 'Form Details' },
-                    { label: 'CIN', value: 'U62347543ABCFDA87', fieldset: 'Form Details' },
-                ]
-            },
-            {
-                formGroup: 'Agent Details',
-                formGroupId: 'formDetails',
-                formElements: [
-                    { label: 'Proposal No', value: '', fieldset: 'Agent Details' },
-                    { label: 'Bank Ref Code', value: '', fieldset: 'Agent Details' },
-                    { label: 'STM Code', value: '', fieldset: 'Agent Details' },
-                    { label: 'STM Branch', value: '', fieldset: 'Agent Details' },
-                    { label: 'Employee', value: '', fieldset: 'Agent Details' },
-                    { label: 'Individual', value: '', fieldset: 'Agent Details' },
-                    { label: 'Bancassurance', value: '', fieldset: 'Agent Details' },
-                    { label: 'Unit Linked', value: '', fieldset: 'Agent Details' }
-                ]
-            },
-        ];
 
-        formdata.forEach((data) => {
+        this.form.forEach((data) => {
             formComponents = [];
             data.formElements.forEach((formElements) => {
-                const controldata = new Control();
+                const controldata = new Control(this.mapping);
                 controldata.map(formElements);
                 formComponents.push(this.getFormItem(controldata));
             });

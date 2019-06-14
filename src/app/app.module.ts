@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClient , HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 
@@ -17,6 +18,7 @@ import {
 } from './components';
 import { FormDirective } from './components/form.directive';
 import { FormService} from './shared/services/form.service';
+import { ConfigService } from './shared/services/config.service';
 import {
   InputComponent,
   DropdownComponent,
@@ -49,6 +51,7 @@ import {
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
     AccordionModule.forRoot(),
@@ -56,11 +59,14 @@ import {
     CollapseModule.forRoot(),
     AppRoutingModule,
     FabricModule,
-    SharedModule
+    SharedModule,
+    HttpClientModule
   ],
   providers: [
     FormService,
     { provide: FABRIC_CONFIG, useValue: {} },
+    ConfigService,
+    HttpClient
   ],
   bootstrap: [AppComponent],
   entryComponents: [
