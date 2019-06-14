@@ -5,19 +5,23 @@
         "formElements": [
             {
                 "label": "Non Unit Linked",
-                "value": ""
+                "value": "",
+                "type" : "CHECKBOX"
             },
             {
                 "label": "Unit Linked",
-                "value": ""
+                "value": "",
+                "type" : "CHECKBOX"
             },
             {
                 "label": "UIN",
-                "value": ""
+                "value": "",
+                "type" : "INPUT"
             },
             {
                 "label": "CIN",
-                "value": "U62347543ABCFDA87"
+                "value": "U62347543ABCFDA87",
+                "type" : "INPUT"
             }
         ]
     },
@@ -27,35 +31,43 @@
         "formElements": [
             {
                 "label": "Proposal No",
-                "value": ""
+                "value": "",
+                "type" : "INPUT"
             },
             {
                 "label": "Bank Ref Code",
-                "value": ""
+                "value": "",
+                "type" : "INPUT"
             },
             {
                 "label": "STM Code",
-                "value": ""
+                "value": "",
+                "type" : "INPUT"
             },
             {
                 "label": "STM Branch",
-                "value": ""
+                "value": "",
+                "type" : "INPUT"
             },
             {
                 "label": "Employee",
-                "value": ""
+                "value": "",
+                "type" : "CHECKBOX"
             },
             {
                 "label": "Individual",
-                "value": ""
+                "value": "",
+                "type" : "CHECKBOX"
             },
             {
                 "label": "Bancassurance",
-                "value": ""
+                "value": "",
+                "type" : "CHECKBOX"
             },
             {
                 "label": "Unit Linked",
-                "value": ""
+                "value": "",
+                "type" : "CHECKBOX"
             }
         ]
     }

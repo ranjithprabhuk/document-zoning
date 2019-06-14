@@ -15,17 +15,11 @@ export class Control {
         this.isEnabled = false;
     }
 
-    public map(data, dictionary) {
+    public map(data) {
         this.labelText = data.label;
-        this.controlType = this.GetControlType(data.label, dictionary);
+        this.controlType = ControlType[data.type as string];
         this.value = data.value;
         this.isRequired = true;
         this.isEnabled = true;
-    }
-
-    private GetControlType(data: string, dictionary): ControlType {
-        data = data.replace(/ /g, '').toLowerCase();
-        const control = dictionary[data];
-        return ControlType[control as string];
     }
 }
