@@ -2,6 +2,7 @@ import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { SharedService } from '../../shared/shared.service';
 import { FormType, FORM_TYPES } from '@shared/constants';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-upload-form',
@@ -17,7 +18,8 @@ export class UploadFormComponent implements OnInit {
 
   constructor(
     private sharedService: SharedService,
-    private modalService: BsModalService
+    private modalService: BsModalService,
+    private router: Router,
   ) {
 
   }
@@ -57,9 +59,11 @@ export class UploadFormComponent implements OnInit {
 
   public navigateToForm(): void {
     this.modalRef.hide();
+    this.router.navigateByUrl(`/form/${this.selectedFormType}`);
   }
 
   public cancel(): void {
     this.modalRef.hide();
+    // TODO: Need to reset the form
   }
 }
