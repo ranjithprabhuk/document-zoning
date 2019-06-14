@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AccordionModule } from 'ngx-bootstrap';
+import { FabricModule, FABRIC_CONFIG } from 'ngx-fabric-wrapper';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,7 +24,7 @@ import {
   NumberComponent,
   EmailComponent
 } from './components/form-generator/form-components/index';
-
+import { PdfHighlighterComponent } from './components/pdf-highlighter/pdf-highlighter.component';
 
 @NgModule({
   declarations: [
@@ -42,16 +43,21 @@ import {
     DateComponent,
     TelComponent,
     NumberComponent,
-    EmailComponent
+    EmailComponent,
+    PdfHighlighterComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AccordionModule.forRoot(),
     AppRoutingModule,
+    FabricModule,
     SharedModule
   ],
-  providers: [FormService],
+  providers: [
+    FormService,
+    { provide: FABRIC_CONFIG, useValue: {} },
+  ],
   bootstrap: [AppComponent],
   entryComponents: [
     InputComponent,

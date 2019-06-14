@@ -1,4 +1,4 @@
-import { Component, OnInit, ComponentFactoryResolver, ViewChild, AfterViewChecked } from '@angular/core';
+import { Component, OnInit, ComponentFactoryResolver, ViewChild, AfterViewInit } from '@angular/core';
 import { FormDirective } from '../form.directive';
 import { FormItem } from '../../shared/models/form-item';
 import { FormService } from '../../shared/services/form.service';
@@ -9,7 +9,7 @@ import { FormComponent } from '../../shared/models/form';
   templateUrl: './form-generator.component.html',
   styleUrls: ['./form-generator.component.scss']
 })
-export class FormGeneratorComponent implements OnInit, AfterViewChecked {
+export class FormGeneratorComponent implements OnInit, AfterViewInit {
   @ViewChild(FormDirective) formHost: FormDirective;
 
   constructor(
@@ -20,11 +20,11 @@ export class FormGeneratorComponent implements OnInit, AfterViewChecked {
     }
 
   ngOnInit(): void {
-    this.generateForm();
+
   }
 
-  ngAfterViewChecked(): void {
-
+  ngAfterViewInit(): void {
+    setTimeout(() => this.generateForm(), 500);
   }
 
   public generateForm(): void {
