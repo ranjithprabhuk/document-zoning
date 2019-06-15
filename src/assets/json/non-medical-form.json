@@ -7,25 +7,53 @@
                 "label": "First Name",
                 "formControlName": "firstName",
                 "value": "sasi",
-                "type": "INPUT"
+                "type": "INPUT",
+                "highlighter": {
+                    "pageNumber": 1,
+                    "top": 20,
+                    "left": 40,
+                    "width": 200,
+                    "height": 60
+                }
             },
             {
                 "label": "Middle Name",
                 "formControlName": "middleName",
                 "value": "kumar",
-                "type": "INPUT"
+                "type": "INPUT",
+                "highlighter": {
+                    "pageNumber": 1,
+                    "top": 20,
+                    "left": 40,
+                    "width": 200,
+                    "height": 60
+                }
             },
             {
                 "label": "Last Name",
                 "formControlName": "lastName",
                 "value": "raju",
-                "type": "INPUT"
+                "type": "INPUT",
+                "highlighter": {
+                    "pageNumber": 1,
+                    "top": 20,
+                    "left": 40,
+                    "width": 200,
+                    "height": 60
+                }
             },
             {
                 "label": "Address",
                 "formControlName": "address",
                 "value": "",
-                "type": "TEXTAREA"
+                "type": "TEXTAREA",
+                "highlighter": {
+                    "pageNumber": 1,
+                    "top": 20,
+                    "left": 40,
+                    "width": 200,
+                    "height": 60
+                }
             }
         ]
     },
@@ -37,25 +65,130 @@
                 "label": "Place of Birth",
                 "formControlName": "placeOfBirth",
                 "value": "",
-                "type": "INPUT"
+                "type": "INPUT",
+                "highlighter": {
+                    "pageNumber": 1,
+                    "top": 20,
+                    "left": 40,
+                    "width": 200,
+                    "height": 60
+                }
             },
             {
                 "label": "Father Name",
                 "formControlName": "fatherName",
                 "value": "",
-                "type": "INPUT"
+                "type": "INPUT",
+                "highlighter": {
+                    "pageNumber": 1,
+                    "top": 20,
+                    "left": 40,
+                    "width": 200,
+                    "height": 60
+                }
             },
             {
                 "label": "Mother Name",
                 "formControlName": "motherName",
                 "value": "",
-                "type": "INPUT"
+                "type": "INPUT",
+                "highlighter": {
+                    "pageNumber": 1,
+                    "top": 20,
+                    "left": 40,
+                    "width": 200,
+                    "height": 60
+                }
             },
             {
                 "label": "Husband Name",
                 "formControlName": "husbandName",
                 "value": "",
-                "type": "INPUT"
+                "type": "INPUT",
+                "highlighter": {
+                    "pageNumber": 1,
+                    "top": 20,
+                    "left": 40,
+                    "width": 200,
+                    "height": 60
+                }
+            }
+        ]
+    },
+    {
+        "formGroupTitle": "Nominee Details",
+        "formGroupName": "nomineeDetails",
+        "formElements": [
+            {
+                "label": "Father Age",
+                "formControlName": "fatherAge",
+                "value": "",
+                "type": "INPUT",
+                "highlighter": {
+                    "pageNumber": 2,
+                    "top": 20,
+                    "left": 40,
+                    "width": 200,
+                    "height": 60
+                }
+            },
+            {
+                "label": "Mother Age",
+                "formControlName": "motherAge",
+                "value": "",
+                "type": "INPUT",
+                "highlighter": {
+                    "pageNumber": 2,
+                    "top": 20,
+                    "left": 40,
+                    "width": 200,
+                    "height": 60
+                }
+            },
+            {
+                "label": "Brother Age",
+                "formControlName": "brotherAge",
+                "value": "",
+                "type": "INPUT",
+                "highlighter": {
+                    "pageNumber": 2,
+                    "top": 20,
+                    "left": 40,
+                    "width": 200,
+                    "height": 60
+                }
+            }
+        ]
+    },
+    {
+        "formGroupTitle": "Physical Information",
+        "formGroupName": "physicalInformation",
+        "formElements": [
+            {
+                "label": "Height",
+                "formControlName": "height",
+                "value": "",
+                "type": "INPUT",
+                "highlighter": {
+                    "pageNumber": 2,
+                    "top": 20,
+                    "left": 40,
+                    "width": 200,
+                    "height": 60
+                }
+            },
+            {
+                "label": "Weight",
+                "formControlName": "weight",
+                "value": "",
+                "type": "INPUT",
+                "highlighter": {
+                    "pageNumber": 2,
+                    "top": 20,
+                    "left": 40,
+                    "width": 200,
+                    "height": 60
+                }
             }
         ]
     }
