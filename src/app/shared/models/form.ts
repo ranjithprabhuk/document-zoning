@@ -1,3 +1,4 @@
 export interface FormComponent {
-    data: any;
-  }
+  data: any;
+  parentGroup?: any;
+}

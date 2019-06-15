@@ -13,6 +13,7 @@ import {
     NumberComponent,
     EmailComponent
 } from '../../components/form-generator/form-components';
+
 import { ConfigService } from './config.service';
 
 @Injectable()
@@ -33,16 +34,17 @@ export class FormService {
     public buildForm(formData) {
         let formComponents = [];
         const groupedFormComponents: any[] = [];
-
-        formData.forEach((data) => {
+        formData.forEach((formGroup) => {
+            const formControls = {};
             formComponents = [];
-            data.formElements.forEach((formElements) => {
+            const { formElements , ...formGroupProperties } = formGroup;
+            formElements.forEach((formElement) => {
                 const controldata = new Control();
-                controldata.map(formElements);
+                controldata.map(formElement);
                 formComponents.push(this.getFormItem(controldata));
             });
             groupedFormComponents.push({
-                header: data.formGroup,
+                settings: formGroupProperties,
                 formComponents
             });
         });

@@ -1,73 +1,31 @@
 [
     {
-        "formGroup": "Form Details",
-        "formGroupId": "formDetails",
+        "formGroupTitle": "Personal Details",
+        "formGroupName": "personalDetails",
         "formElements": [
             {
-                "label": "Non Unit Linked",
-                "value": "",
-                "type" : "CHECKBOX"
+                "label": "First Name",
+                "formControlName": "firstName",
+                "value": "sasi",
+                "type": "INPUT"
             },
             {
-                "label": "Unit Linked",
-                "value": "",
-                "type" : "CHECKBOX"
+                "label": "Middle Name",
+                "formControlName": "middleName",
+                "value": "kumar",
+                "type": "INPUT"
             },
             {
-                "label": "UIN",
-                "value": "",
-                "type" : "INPUT"
+                "label": "Last Name",
+                "formControlName": "lastName",
+                "value": "raju",
+                "type": "INPUT"
             },
             {
-                "label": "CIN",
-                "value": "U62347543ABCFDA87",
-                "type" : "INPUT"
-            }
-        ]
-    },
-    {
-        "formGroup": "Agent Details",
-        "formGroupId": "formDetails",
-        "formElements": [
-            {
-                "label": "Proposal No",
+                "label": "Address",
+                "formControlName": "address",
                 "value": "",
-                "type" : "INPUT"
-            },
-            {
-                "label": "Bank Ref Code",
-                "value": "",
-                "type" : "INPUT"
-            },
-            {
-                "label": "STM Code",
-                "value": "",
-                "type" : "INPUT"
-            },
-            {
-                "label": "STM Branch",
-                "value": "",
-                "type" : "INPUT"
-            },
-            {
-                "label": "Employee",
-                "value": "",
-                "type" : "CHECKBOX"
-            },
-            {
-                "label": "Individual",
-                "value": "",
-                "type" : "CHECKBOX"
-            },
-            {
-                "label": "Bancassurance",
-                "value": "",
-                "type" : "CHECKBOX"
-            },
-            {
-                "label": "Unit Linked",
-                "value": "",
-                "type" : "CHECKBOX"
+                "type": "TEXTAREA"
             }
         ]
     }
