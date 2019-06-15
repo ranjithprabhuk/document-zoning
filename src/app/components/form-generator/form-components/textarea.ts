@@ -5,8 +5,10 @@ import { BaseComponent } from './basecomponent';
 @Component({
   template: `
     <div class="form-group">
-    <label for="{{data.labelText}}">{{data.labelText}}</label>
+    <label class="col-12 control-label" for="{{data.labelText}}">{{data.labelText}}</label>
+    <div class="col-12">
     <input type="input" class="form-control" id="{{data.labelText}}" placeholder="{{data.value}}">
+    </div>
     </div>
   `
 })
