@@ -1,10 +1,18 @@
 <div class="row">
   <section class="col-12">
     <div class="upload-button-container">
-      <input id="pdf-file" type="file" accept="application/pdf" (change)="handleFileUpload($event.target.files)">
-      <label class="btn btn-default" for="pdf-file">
-        <span class="fa fa-upload"></span>Choose a file
-      </label>
+      <form [formGroup]="uploadForm">
+        <input
+          id="pdf-file"
+          type="file"
+          accept="application/pdf"
+          [formControlName]="uploadFile"
+          (change)="handleFileUpload($event.target.files)"
+        >
+        <label class="btn btn-default" for="pdf-file">
+          <span class="fa fa-upload"></span>Choose a file
+        </label>
+      </form>
     </div>
   </section>
 </div>

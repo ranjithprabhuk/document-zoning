@@ -3,6 +3,7 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { SharedService } from '../../shared/shared.service';
 import { FormType, FORM_TYPES, STEP_INFORMATION } from '@shared/constants';
 import { Router } from '@angular/router';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-upload-form',
@@ -14,6 +15,7 @@ export class UploadFormComponent implements OnInit {
   public selectedFormType: string = FORM_TYPES[0].value;
   public modalRef: BsModalRef;
   public stepInformations = STEP_INFORMATION;
+  public uploadForm: FormGroup = new FormGroup({uploadFile: new FormControl({})});
 
   @ViewChild('modalTemplate') modalTemplate: TemplateRef<any>;
 
@@ -39,6 +41,7 @@ export class UploadFormComponent implements OnInit {
       this.convertFileIntoArray(uploadedFile);
     } else {
       console.warn(' not a valid PDF');
+      this.uploadForm.reset();
       // TODO: Pop-up with message
     }
   }
@@ -65,6 +68,6 @@ export class UploadFormComponent implements OnInit {
 
   public cancel(): void {
     this.modalRef.hide();
-    // TODO: Need to reset the form
+    this.uploadForm.reset();
   }
 }
