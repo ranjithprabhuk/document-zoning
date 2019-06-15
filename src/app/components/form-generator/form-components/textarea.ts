@@ -6,7 +6,8 @@ import { BaseComponent } from './basecomponent';
   template: `
     <div class="form-group">
     <label for="{{data.labelText}}">{{data.labelText}}</label>
-    <input type="input" class="form-control" id="{{data.labelText}}" placeholder="{{data.value}}">
+    <input type="input" class="form-control" id="{{data.labelText}}" placeholder="{{data.value}}"
+    (focus)="focusFunction()" (focusout)="focusOutFunction()">
     </div>
   `
 })
