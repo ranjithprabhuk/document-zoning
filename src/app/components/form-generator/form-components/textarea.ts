@@ -4,10 +4,11 @@ import { BaseComponent } from './basecomponent';
 
 @Component({
   template: `
-    <div class="form-group">
-    <label for="{{data.labelText}}">{{data.labelText}}</label>
-    <input type="input" class="form-control" id="{{data.labelText}}" placeholder="{{data.value}}"
-    (focus)="focusFunction()" (focusout)="focusOutFunction()">
+    <label class="col-12 control-label" for="{{data.labelText}}">{{data.labelText}}</label>
+      <div class="col-12">
+        <input type="input" class="form-control" id="{{data.labelText}}" placeholder="{{data.value}}"
+          (focus)="focusFunction()" (focusout)="focusOutFunction()">
+      </div>
     </div>
   `
 })
