@@ -10,10 +10,10 @@
                 "type": "INPUT",
                 "highlighter": {
                     "pageNumber": 1,
-                    "top": 20,
+                    "top": 132,
                     "left": 40,
                     "width": 200,
-                    "height": 60
+                    "height": 20
                 }
             },
             {
@@ -23,10 +23,10 @@
                 "type": "INPUT",
                 "highlighter": {
                     "pageNumber": 1,
-                    "top": 20,
+                    "top": 145,
                     "left": 40,
                     "width": 200,
-                    "height": 60
+                    "height": 20
                 }
             },
             {
@@ -36,10 +36,10 @@
                 "type": "INPUT",
                 "highlighter": {
                     "pageNumber": 1,
-                    "top": 20,
+                    "top": 155,
                     "left": 40,
                     "width": 200,
-                    "height": 60
+                    "height": 20
                 }
             },
             {
