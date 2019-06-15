@@ -7,7 +7,8 @@ import { BaseComponent } from './basecomponent';
     <div class="form-group">
     <label class="col-12" for="{{data.labelText}}">{{data.labelText}}</label>
     <div class="col-12">
-    <textarea row="3" class="form-control" id="{{data.labelText}}" placeholder="{{data.value}}"></textarea>
+    <textarea row="3" class="form-control" id="{{data.labelText}}" placeholder="{{data.value}}"
+ (focus)="focusFunction()" (focusout)="focusOutFunction()"></textarea>
     <div>
     </div>
   `

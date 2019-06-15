@@ -1,0 +1,21 @@
+<div class="row">
+  <section class="col-6">
+    <div *ngIf="formGroups && formGroups.length > 0">
+      <form [formGroup]="nonMedicalForm">
+        <accordion [closeOthers]="true" [isAnimated]="true">
+          <accordion-group *ngFor="let formGroup of formGroups" heading="{{formGroup.settings.formGroupTitle}}">
+            <app-form-generator [parentForm]="nonMedicalForm" [formConfig]="formGroup"></app-form-generator>
+          </accordion-group>
+        </accordion>
+      </form>
+    </div>
+  </section>
+  <section class="col-6 padding-none">
+    <app-pdf-highlighter
+      [pdf]="pdfFile"
+      [showHighlighter]="showHighlighter"
+      [highlighterConfig]="highlighter"
+    ></app-pdf-highlighter>
+  </section>
+  <button (click)="onDownload()">Download</button>
+</div>

@@ -6,16 +6,16 @@ import { FormService } from '@shared/services/form.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
-  selector: 'app-medical-form',
-  templateUrl: './medical-form.component.html',
-  styleUrls: ['./medical-form.component.scss']
+  selector: 'app-dynamic-form',
+  templateUrl: './dynamic-form.component.html',
+  styleUrls: ['./dynamic-form.component.scss']
 })
-export class MedicalFormComponent implements OnInit, OnDestroy {
+export class DynamicFormComponent implements OnInit, OnDestroy {
   public uploadedFile: Subscription = null;
   public pdfFile: any = null;
   public highlighter: Highlighter = null;
   public formGroups: any = [];
-  nonMedicalForm: FormGroup;
+  public form: FormGroup;
   public currentFocus: Subscription = null;
   public showHighlighter = false;
   public isPdfLoaded = false;
@@ -23,7 +23,7 @@ export class MedicalFormComponent implements OnInit, OnDestroy {
   constructor(private sharedService: SharedService, private formService: FormService, private formBuilder: FormBuilder) {}
 
   public ngOnInit(): void {
-    this.nonMedicalForm = this.formBuilder.group({});
+    this.form = this.formBuilder.group({});
     this.getUploadedFile();
     this.getCurrentFocus();
     this.getFormInformation();
@@ -68,7 +68,11 @@ export class MedicalFormComponent implements OnInit, OnDestroy {
   }
 
   public onSave() {
-    this.sharedService.downloadFormData(this.nonMedicalForm.value);
+    this.sharedService.downloadFormData(this.form.value);
+  }
+
+  public onDownload() {
+    this.sharedService.downloadFormData(this.form);
   }
 
   public ngOnDestroy(): void {

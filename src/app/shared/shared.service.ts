@@ -18,7 +18,7 @@ export class SharedService {
         this.focus.next(control);
     }
 
-    public downloadFormData(data){
+    public downloadFormData(data) {
         const formdata = JSON.stringify(data);
         const element = document.createElement('a');
         element.setAttribute('href', 'data:text/json;charset=UTF-8,' + encodeURIComponent(formdata));

@@ -7,7 +7,8 @@ import { BaseComponent } from './basecomponent';
     <div class="form-group">
     <label class="col-sm-2 control-label">{{data.labelText}}</label>
     <div class="col-sm-10">
-    <input type="date" class="form-control" id="{{data.labelText}}" placeholder="{{data.value}}">
+    <input type="date" class="form-control" id="{{data.labelText}}" placeholder="{{data.value}}"
+    (focus)="focusFunction()" (focusout)="focusOutFunction()">
     </div>
     </div>
   `
