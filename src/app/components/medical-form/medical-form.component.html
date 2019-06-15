@@ -4,9 +4,7 @@
         <form [formGroup]="nonMedicalForm">
             <accordion [closeOthers]="true" [isAnimated]="true">
               <accordion-group *ngFor="let formGroup of formGroups" heading="{{formGroup.settings.formGroupTitle}}">
-                <div [formGroupName]="formGroup.settings.formGroupName" >
-                    <app-form-generator [formConfig]="formGroup.formComponents"></app-form-generator>
-                </div>
+                <app-form-generator [parentForm]="nonMedicalForm" [formConfig]="formGroup"></app-form-generator>
               </accordion-group>
             </accordion>
           </form>

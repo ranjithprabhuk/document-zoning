@@ -3,7 +3,7 @@ import { Subscription } from 'rxjs';
 import { Pdf, Highlighter } from '@shared/models';
 import { SharedService } from '@shared/shared.service';
 import { FormService } from '@shared/services/form.service';
-import { FormGroup } from '@angular/forms';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-medical-form',
@@ -17,22 +17,13 @@ export class MedicalFormComponent implements OnInit, OnDestroy {
   public formGroups: any = [];
   nonMedicalForm: FormGroup;
 
-  constructor(private sharedService: SharedService, private formService: FormService) {}
+  constructor(private sharedService: SharedService, private formService: FormService, private formBuilder: FormBuilder) {}
 
   public ngOnInit(): void {
+    this.nonMedicalForm = this.formBuilder.group({});
     this.getUploadedFile();
     this.formService.getForm().then((data) => {
       this.formGroups = data;
-      this.generateForm(this.formGroups);
-    });
-  }
-  private generateForm(formGroups) {
-    let formGroupsObject = {};
-    formGroups.forEach( formGroup => {
-      formGroupsObject[formGroup.settings.formGroupName] = formGroup[formGroup.settings.formGroupName];
-    })
-    this.nonMedicalForm = new FormGroup({
-      ...formGroupsObject
     });
   }
   public getUploadedFile(): void {

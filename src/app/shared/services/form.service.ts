@@ -44,15 +44,12 @@ export class FormService {
         let formComponents = [];
         const groupedFormComponents: any[] = [];
         formData.forEach((formGroup) => {
-            let formControls = {};
+            const formControls = {};
             formComponents = [];
             const { formElements , ...formGroupProperties } = formGroup;
             formElements.forEach((formElement) => {
                 const controldata = new Control(this.mapping);
                 controldata.map(formElement);
-                const dynamicFormControl = new FormControl(formElement.value);
-                formElement.formControlName = dynamicFormControl;
-                formControls[formElement.formControlName] = dynamicFormControl;
                 formComponents.push(this.getFormItem(controldata));
             });
             const dynamicFormGroup = new FormGroup({
@@ -60,7 +57,6 @@ export class FormService {
             });
             groupedFormComponents.push({
                 settings: formGroupProperties,
-                [formGroupProperties.formGroupName]: dynamicFormGroup,
                 formComponents
             });
         });
