@@ -22,3 +22,12 @@ div.canvas-container {
     left: 0;
   }
 }
+
+.btn.btn-primary{
+  position: absolute;
+  bottom: 6px;
+  border-radius: 2rem;
+  > span {
+    margin-right: 0.5rem;
+  }
+}
