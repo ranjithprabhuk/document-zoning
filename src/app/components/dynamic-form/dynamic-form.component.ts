@@ -13,7 +13,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 export class DynamicFormComponent implements OnInit, OnDestroy {
   public uploadedFile: Subscription = null;
   public pdfFile: any = null;
-  public highlighter: Highlighter = null;
+  public highlighter: any = null;
   public formGroups: any = [];
   nonMedicalForm: FormGroup;
   public currentFocus: Subscription = null;
@@ -47,8 +47,8 @@ export class DynamicFormComponent implements OnInit, OnDestroy {
     this.currentFocus = this.sharedService.currentFocus.subscribe((control) => {
       if (control && this.isPdfLoaded) {
         this.showHighlighter = true;
-        this.setHighlighter();
-        this.pdfFile = { ...this.pdfFile };
+        this.setHighlighter(control);
+        this.pdfFile = { ...this.pdfFile, PageNumber: control.highlighter.pageNumber };
       } else {
         this.showHighlighter = false;
       }
@@ -59,12 +59,14 @@ export class DynamicFormComponent implements OnInit, OnDestroy {
     this.pdfFile = new Pdf();
     this.pdfFile.map(file, 1);
     this.isPdfLoaded = true;
-    this.setHighlighter();
   }
 
-  private setHighlighter(): void {
+  private setHighlighter(control): void {
     this.highlighter = new Highlighter();
-    this.highlighter.setPosition(Math.floor(Math.random() * (300 - 25 + 1) + 25), Math.floor(Math.random() * (300 - 25 + 1) + 25), 200, 50);
+    if (control) {
+      const { top, left, width, height } = control.highlighter;
+      this.highlighter = {...this.highlighter, top, left, width, height };
+    }
   }
 
   public ngOnDestroy(): void {
