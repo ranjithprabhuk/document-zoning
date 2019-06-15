@@ -1,5 +1,5 @@
 import { Control } from './../models/control';
-import { ControlType } from './../models/control-type';
+import { ControlType } from '../constants/control-type';
 import { Injectable } from '@angular/core';
 import { FormItem } from '../models/form-item';
 import {
@@ -15,7 +15,6 @@ import {
 } from '../../components/form-generator/form-components';
 
 import { ConfigService } from '@shared/services';
-import { FormControl, FormGroup } from '@angular/forms';
 
 @Injectable()
 export class FormService {
@@ -23,20 +22,12 @@ export class FormService {
     form;
     mapping = [];
     constructor(private configService: ConfigService) {
-        this.getMapping();
     }
     // TODO: add logic to convert form data to form items
     public getForm() {
         return this.configService.getNonMedicalForm().toPromise().then((formData) => {
             return Promise.resolve(this.buildForm(formData));
         });
-    }
-    private getMapping() {
-        if (!this.mapping || this.mapping.length === 0) {
-            this.configService.getControlMapping().toPromise().then((value) => {
-                this.mapping = value as any[];
-            });
-        }
     }
 
     // TODO: add logic to convert form data to form items
@@ -48,12 +39,9 @@ export class FormService {
             formComponents = [];
             const { formElements , ...formGroupProperties } = formGroup;
             formElements.forEach((formElement) => {
-                const controldata = new Control(this.mapping);
+                const controldata = new Control();
                 controldata.map(formElement);
                 formComponents.push(this.getFormItem(controldata));
-            });
-            const dynamicFormGroup = new FormGroup({
-                ...formControls
             });
             groupedFormComponents.push({
                 settings: formGroupProperties,

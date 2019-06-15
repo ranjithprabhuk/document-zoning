@@ -1,5 +1,7 @@
 section.col-6 {
   border: 1px solid #fff;
+  max-height: calc(100vh - 5rem);
+  overflow: auto;
 }
 
 #document-viewer {

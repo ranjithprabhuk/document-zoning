@@ -1,4 +1,4 @@
-import { ControlType } from './control-type';
+import { ControlType } from '../constants/control-type';
 
 export class Control {
     public labelText: string;
@@ -8,9 +8,10 @@ export class Control {
     public isRequired: boolean;
     public isEnabled: boolean;
 
-    constructor(public dictionary) {
+    constructor() {
         this.labelText = '';
         this.controlType = ControlType.NONE;
+        this.formControlName = '';
         this.value = '';
         this.isRequired = false;
         this.isEnabled = false;
@@ -19,15 +20,9 @@ export class Control {
     public map(data) {
         this.labelText = data.label;
         this.formControlName = data.formControlName;
-        this.controlType = this.GetControlType(data.label);
+        this.controlType = ControlType[data.type as string];
         this.value = data.value;
         this.isRequired = true;
         this.isEnabled = true;
-    }
-
-    private GetControlType(data: string): ControlType {
-        data = data.replace(/ /g, '').toLowerCase();
-        const control = this.dictionary[data];
-        return ControlType[control as string];
     }
 }

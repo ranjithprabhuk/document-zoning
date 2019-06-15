@@ -6,22 +6,26 @@
             {
                 "label": "First Name",
                 "formControlName": "firstName",
-                "value": "sasi"
+                "value": "sasi",
+                "type": "INPUT"
             },
             {
                 "label": "Middle Name",
                 "formControlName": "middleName",
-                "value": "kumar"
+                "value": "kumar",
+                "type": "INPUT"
             },
             {
                 "label": "Last Name",
                 "formControlName": "lastName",
-                "value": "raju"
+                "value": "raju",
+                "type": "INPUT"
             },
             {
                 "label": "Address",
                 "formControlName": "address",
-                "value": ""
+                "value": "",
+                "type": "TEXTAREA"
             }
         ]
     }

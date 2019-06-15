@@ -12,41 +12,64 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 })
 export class MedicalFormComponent implements OnInit, OnDestroy {
   public uploadedFile: Subscription = null;
-  public pdfFile: Pdf = null;
+  public pdfFile: any = null;
   public highlighter: Highlighter = null;
   public formGroups: any = [];
   nonMedicalForm: FormGroup;
+  public currentFocus: Subscription = null;
+  public showHighlighter = false;
+  public isPdfLoaded = false;
 
   constructor(private sharedService: SharedService, private formService: FormService, private formBuilder: FormBuilder) {}
 
   public ngOnInit(): void {
     this.nonMedicalForm = this.formBuilder.group({});
     this.getUploadedFile();
+    this.getCurrentFocus();
+    this.getFormInformation();
+  }
+
+  private getFormInformation(): void {
     this.formService.getForm().then((data) => {
       this.formGroups = data;
     });
   }
-  public getUploadedFile(): void {
+
+  private getUploadedFile(): void {
     this.uploadedFile = this.sharedService.currentFile.subscribe((file) => {
       if (file) {
         this.loadPdf(file);
-        this.setHighlighter();
       }
     });
   }
 
-  public loadPdf(file: Uint8Array): void {
-    this.pdfFile = new Pdf();
-    this.pdfFile.map(file, 1);
+  private getCurrentFocus(): void {
+    this.currentFocus = this.sharedService.currentFocus.subscribe((control) => {
+      if (control && this.isPdfLoaded) {
+        this.showHighlighter = true;
+        this.setHighlighter();
+        this.pdfFile = { ...this.pdfFile };
+      } else {
+        this.showHighlighter = false;
+      }
+    });
   }
 
-  public setHighlighter(): void {
+  private loadPdf(file: Uint8Array): void {
+    this.pdfFile = new Pdf();
+    this.pdfFile.map(file, 1);
+    this.isPdfLoaded = true;
+    this.setHighlighter();
+  }
+
+  private setHighlighter(): void {
     this.highlighter = new Highlighter();
-    this.highlighter.setPosition(23, 56, 200, 50);
+    this.highlighter.setPosition(Math.floor(Math.random() * (300 - 25 + 1) + 25), Math.floor(Math.random() * (300 - 25 + 1) + 25), 200, 50);
   }
 
   public ngOnDestroy(): void {
     this.uploadedFile.unsubscribe();
     this.sharedService.updateFile(null);
+    this.currentFocus.unsubscribe();
   }
 }

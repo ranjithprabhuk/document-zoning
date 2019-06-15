@@ -1,15 +1,18 @@
 .upload-button-container {
   justify-content: center;
-  margin-top: 1rem;
   #pdf-file {
     display: none;
   }
-  label.btn  {
-    display: block;
+  label.btn {
+    display: flex;
     padding: 10rem 2rem;
     cursor: pointer;
     font-size: 3rem;
     border: 2px dashed;
+    height: calc(100vh - 20rem);
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0rem;
     span.fa {
       margin-right: 2rem;
     }
