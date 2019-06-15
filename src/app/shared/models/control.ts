@@ -7,6 +7,7 @@ export class Control {
     public value: any;
     public isRequired: boolean;
     public isEnabled: boolean;
+    public highlighter:  any = null;
 
     constructor() {
         this.labelText = '';
@@ -15,6 +16,7 @@ export class Control {
         this.value = '';
         this.isRequired = false;
         this.isEnabled = false;
+        this.highlighter = null;
     }
 
     public map(data) {
@@ -24,5 +26,6 @@ export class Control {
         this.value = data.value;
         this.isRequired = true;
         this.isEnabled = true;
+        this.highlighter = data.highlighter;
     }
 }
