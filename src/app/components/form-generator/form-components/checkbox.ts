@@ -6,7 +6,7 @@ import { BaseComponent } from './basecomponent';
   template: `
     <div class="radio">
     <label>
-      <input type="radio" id="{{data.labelText}}"> {{data.labelText}}
+      <input type="radio" id="{{data.labelText}}"  (focus)="focusFunction()" (focusout)="focusOutFunction()"> {{data.labelText}}
     </label>
   </div>
   `
