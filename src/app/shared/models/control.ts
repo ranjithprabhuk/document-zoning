@@ -7,7 +7,7 @@ export class Control {
     public value: any;
     public isRequired: boolean;
     public isEnabled: boolean;
-    public highlighter:  any = null;
+    public highlighter: any = null;
 
     constructor() {
         this.labelText = '';
