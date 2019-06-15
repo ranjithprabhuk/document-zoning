@@ -67,6 +67,10 @@ export class MedicalFormComponent implements OnInit, OnDestroy {
     this.highlighter.setPosition(Math.floor(Math.random() * (300 - 25 + 1) + 25), Math.floor(Math.random() * (300 - 25 + 1) + 25), 200, 50);
   }
 
+  public onSave() {
+    this.sharedService.downloadFormData(this.nonMedicalForm.value);
+  }
+
   public ngOnDestroy(): void {
     this.uploadedFile.unsubscribe();
     this.sharedService.updateFile(null);
