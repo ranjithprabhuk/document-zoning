@@ -4,9 +4,9 @@ import { BaseComponent } from './basecomponent';
 
 @Component({
   template: `
-    <div class="radio">
+    <div class="checkbox">
     <label>
-      <input type="radio" id="{{data.labelText}}"  (focus)="focusFunction()" (focusout)="focusOutFunction()"> {{data.labelText}}
+      <input type="checkbox" id="{{data.labelText}}"  (focus)="focusFunction()" (focusout)="focusOutFunction()"> {{data.labelText}}
     </label>
   </div>
   `
