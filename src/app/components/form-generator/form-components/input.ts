@@ -18,8 +18,6 @@ import { FormControl } from '@angular/forms';
   `
 })
 export class InputComponent extends BaseComponent implements FormComponent, OnInit {
-  @Input() data: any;
-  @Input() parentGroup;
 
   constructor(public sharedService: SharedService) {
     super(sharedService);
