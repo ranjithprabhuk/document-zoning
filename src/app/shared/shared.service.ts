@@ -18,5 +18,15 @@ export class SharedService {
         this.focus.next(control);
     }
 
+    public downloadFormData(data) {
+        const formdata = JSON.stringify(data);
+        const element = document.createElement('a');
+        element.setAttribute('href', 'data:text/json;charset=UTF-8,' + encodeURIComponent(formdata));
+        element.setAttribute('download', 'form-data.json');
+        element.style.display = 'none';
+        document.body.appendChild(element);
+        element.click(); // simulate click
+        document.body.removeChild(element);
+    }
 
 }
