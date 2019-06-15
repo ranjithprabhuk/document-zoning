@@ -6,11 +6,11 @@ import { FormService } from '@shared/services/form.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
-  selector: 'app-medical-form',
-  templateUrl: './medical-form.component.html',
-  styleUrls: ['./medical-form.component.scss']
+  selector: 'app-dynamic-form',
+  templateUrl: './dynamic-form.component.html',
+  styleUrls: ['./dynamic-form.component.scss']
 })
-export class MedicalFormComponent implements OnInit, OnDestroy {
+export class DynamicFormComponent implements OnInit, OnDestroy {
   public uploadedFile: Subscription = null;
   public pdfFile: any = null;
   public highlighter: Highlighter = null;

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { UploadFormComponent, MedicalFormComponent } from './components';
+import { UploadFormComponent, DynamicFormComponent } from './components';
 
 const routes: Routes = [
   {
@@ -14,7 +14,7 @@ const routes: Routes = [
   },
   {
     path: 'form/:formType',
-    component: MedicalFormComponent
+    component: DynamicFormComponent
   }
 ];
 

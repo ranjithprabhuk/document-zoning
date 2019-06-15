@@ -28,5 +28,35 @@
                 "type": "TEXTAREA"
             }
         ]
+    },
+    {
+        "formGroupTitle": "Family Details",
+        "formGroupName": "familyDetails",
+        "formElements": [
+            {
+                "label": "Place of Birth",
+                "formControlName": "placeOfBirth",
+                "value": "",
+                "type": "INPUT"
+            },
+            {
+                "label": "Father Name",
+                "formControlName": "fatherName",
+                "value": "",
+                "type": "INPUT"
+            },
+            {
+                "label": "Mother Name",
+                "formControlName": "motherName",
+                "value": "",
+                "type": "INPUT"
+            },
+            {
+                "label": "Husband Name",
+                "formControlName": "husbandName",
+                "value": "",
+                "type": "INPUT"
+            }
+        ]
     }
 ]
