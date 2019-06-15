@@ -10,7 +10,8 @@ import { FormControl } from '@angular/forms';
     <div class="form-group" [formGroup]="parentGroup">
       <label class="col-12 control-label">{{data.labelText}}</label>
       <div class="col-12">
-        <input type="input" class="form-control" id="data.labelText" placeholder="{{data.labelText}}" [formControlName]="data.formControlName"
+        <input type="input" class="form-control" id="data.labelText"
+          placeholder="{{data.labelText}}" [formControlName]="data.formControlName"
           (focus)="focusFunction()" (focusout)="focusOutFunction()" >
       </div>
     </div>
