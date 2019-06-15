@@ -5,6 +5,7 @@ import { FormComponent } from '../../../shared/models/form';
 export class BaseComponent implements FormComponent {
 
     @Input() data: any;
+    @Input() parentGroup;
 
     constructor(public sharedService: SharedService) {
 

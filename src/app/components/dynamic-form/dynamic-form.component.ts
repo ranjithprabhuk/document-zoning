@@ -15,7 +15,7 @@ export class DynamicFormComponent implements OnInit, OnDestroy {
   public pdfFile: any = null;
   public highlighter: any = null;
   public formGroups: any = [];
-  nonMedicalForm: FormGroup;
+  public form: FormGroup;
   public currentFocus: Subscription = null;
   public showHighlighter = false;
   public isPdfLoaded = false;
@@ -23,7 +23,7 @@ export class DynamicFormComponent implements OnInit, OnDestroy {
   constructor(private sharedService: SharedService, private formService: FormService, private formBuilder: FormBuilder) {}
 
   public ngOnInit(): void {
-    this.nonMedicalForm = this.formBuilder.group({});
+    this.form = this.formBuilder.group({});
     this.getUploadedFile();
     this.getCurrentFocus();
     this.getFormInformation();
@@ -67,6 +67,14 @@ export class DynamicFormComponent implements OnInit, OnDestroy {
       const { top, left, width, height } = control.highlighter;
       this.highlighter = {...this.highlighter, top, left, width, height };
     }
+  }
+
+  public onSave() {
+    this.sharedService.downloadFormData(this.form.value);
+  }
+
+  public onDownload() {
+    this.sharedService.downloadFormData(this.form);
   }
 
   public ngOnDestroy(): void {
