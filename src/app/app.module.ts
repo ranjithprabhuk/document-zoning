@@ -10,7 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import {
-  MedicalFormComponent,
+  DynamicFormComponent,
   UploadFormComponent,
   FormGeneratorComponent,
   PdfHighlighterComponent
@@ -34,7 +34,7 @@ import {
   declarations: [
     AppComponent,
     UploadFormComponent,
-    MedicalFormComponent,
+    DynamicFormComponent,
     FormGeneratorComponent,
     FormDirective,
     InputComponent,
