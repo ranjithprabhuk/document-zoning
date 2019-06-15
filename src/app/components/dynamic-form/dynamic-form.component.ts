@@ -74,7 +74,7 @@ export class DynamicFormComponent implements OnInit, OnDestroy {
   }
 
   public onDownload() {
-    this.sharedService.downloadFormData(this.form);
+    this.sharedService.downloadFormData(this.form.value);
   }
 
   public ngOnDestroy(): void {
