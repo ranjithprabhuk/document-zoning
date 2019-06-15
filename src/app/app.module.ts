@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClient , HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AccordionModule, ModalModule, CollapseModule } from 'ngx-bootstrap';
 import { FabricModule, FABRIC_CONFIG } from 'ngx-fabric-wrapper';
 import { AppRoutingModule } from './app-routing.module';
@@ -12,7 +12,8 @@ import {
   MedicalFormComponent,
   UploadFormComponent,
   FormGeneratorComponent,
-  PdfHighlighterComponent
+  PdfHighlighterComponent,
+  DynamicFormComponent
 } from './components';
 import { FormDirective } from './components/form.directive';
 import { FormService} from './shared/services/form.service';
@@ -45,13 +46,15 @@ import {
     TelComponent,
     NumberComponent,
     EmailComponent,
-    PdfHighlighterComponent
+    PdfHighlighterComponent,
+    DynamicFormComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
+    ReactiveFormsModule,
     AccordionModule.forRoot(),
     ModalModule.forRoot(),
     CollapseModule.forRoot(),

@@ -1,0 +1,24 @@
+section.col-6 {
+  border: 1px solid #fff;
+  max-height: calc(100vh - 5rem);
+  overflow: auto;
+}
+
+#document-viewer {
+  border: 1px solid #333;
+}
+
+div.canvas-container {
+  width: 100%!important;
+  height: 100% !important;
+}
+
+:host /deep/ fabric {
+  div.canvas-container {
+    width: 100% !important;
+    height: 100% !important;
+    position: absolute !important;
+    top: 0;
+    left: 0;
+  }
+}

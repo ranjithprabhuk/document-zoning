@@ -21,7 +21,6 @@ export class FormGeneratorComponent {
 
   }
 
-
   public generateForm(form): void {
     if (this.formHost) {
       const { viewContainerRef } = this.formHost;
@@ -31,6 +30,8 @@ export class FormGeneratorComponent {
           const componentFactory = this.componentFactoryResolver.resolveComponentFactory(comp.component);
           const componentRef = viewContainerRef.createComponent(componentFactory);
           (componentRef.instance as FormComponent).data = comp.data;
+          console.log('what is childd', comp);
+          (componentRef.instance as any).formGroup = comp.formGroup;
         });
       }
     }

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { SharedService } from '@shared/shared.service';
 import { BaseComponent } from './basecomponent';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   template: `
@@ -11,7 +12,7 @@ import { BaseComponent } from './basecomponent';
   `
 })
 export class TextAreaComponent extends BaseComponent {
-  constructor(public sharedService: SharedService) {
-    super(sharedService);
+  constructor(public sharedService: SharedService, public formBuilder : FormBuilder) {
+    super(sharedService, formBuilder);
   }
 }
