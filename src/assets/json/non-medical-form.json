@@ -49,10 +49,10 @@
                 "type": "TEXTAREA",
                 "highlighter": {
                     "pageNumber": 1,
-                    "top": 20,
-                    "left": 40,
-                    "width": 200,
-                    "height": 60
+                    "top": 245,
+                    "left": 240,
+                    "width": 210,
+                    "height": 65
                 }
             }
         ]
@@ -68,10 +68,10 @@
                 "type": "INPUT",
                 "highlighter": {
                     "pageNumber": 1,
-                    "top": 20,
+                    "top": 250,
                     "left": 40,
-                    "width": 200,
-                    "height": 60
+                    "width": 210,
+                    "height": 15
                 }
             },
             {
@@ -81,10 +81,10 @@
                 "type": "INPUT",
                 "highlighter": {
                     "pageNumber": 1,
-                    "top": 20,
+                    "top": 260,
                     "left": 40,
-                    "width": 200,
-                    "height": 60
+                    "width": 210,
+                    "height": 15
                 }
             },
             {
@@ -94,10 +94,10 @@
                 "type": "INPUT",
                 "highlighter": {
                     "pageNumber": 1,
-                    "top": 20,
+                    "top": 270,
                     "left": 40,
                     "width": 200,
-                    "height": 60
+                    "height": 15
                 }
             },
             {
@@ -107,10 +107,10 @@
                 "type": "INPUT",
                 "highlighter": {
                     "pageNumber": 1,
-                    "top": 20,
+                    "top": 280,
                     "left": 40,
                     "width": 200,
-                    "height": 60
+                    "height": 15
                 }
             }
         ]
@@ -126,10 +126,10 @@
                 "type": "INPUT",
                 "highlighter": {
                     "pageNumber": 2,
-                    "top": 20,
-                    "left": 40,
-                    "width": 200,
-                    "height": 60
+                    "top": 84,
+                    "left": 60,
+                    "width": 100,
+                    "height": 10
                 }
             },
             {
@@ -139,10 +139,10 @@
                 "type": "INPUT",
                 "highlighter": {
                     "pageNumber": 2,
-                    "top": 20,
-                    "left": 40,
-                    "width": 200,
-                    "height": 60
+                    "top": 93,
+                    "left": 60,
+                    "width": 100,
+                    "height": 10
                 }
             },
             {
@@ -152,10 +152,10 @@
                 "type": "INPUT",
                 "highlighter": {
                     "pageNumber": 2,
-                    "top": 20,
-                    "left": 40,
-                    "width": 200,
-                    "height": 60
+                    "top": 99,
+                    "left": 60,
+                    "width": 100,
+                    "height": 10
                 }
             }
         ]
@@ -171,10 +171,10 @@
                 "type": "INPUT",
                 "highlighter": {
                     "pageNumber": 2,
-                    "top": 20,
-                    "left": 40,
-                    "width": 200,
-                    "height": 60
+                    "top": 125,
+                    "left": 320,
+                    "width": 60,
+                    "height": 20
                 }
             },
             {
@@ -184,10 +184,10 @@
                 "type": "INPUT",
                 "highlighter": {
                     "pageNumber": 2,
-                    "top": 20,
-                    "left": 40,
-                    "width": 200,
-                    "height": 60
+                    "top": 140,
+                    "left": 320,
+                    "width": 60,
+                    "height": 20
                 }
             }
         ]
