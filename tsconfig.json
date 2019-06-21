@@ -15,7 +15,15 @@
       "node_modules/@types"
     ],
     "paths": {
-      "@shared/*": ["src/app/shared/*"],
+      "@shared/*": [
+        "src/app/shared/*"
+      ],
+      "pdf-highlighter": [
+        "dist/pdf-highlighter"
+      ],
+      "pdf-highlighter/*": [
+        "dist/pdf-highlighter/*"
+      ]
     },
     "lib": [
       "es2018",
