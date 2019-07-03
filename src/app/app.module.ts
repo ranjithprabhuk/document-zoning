@@ -13,7 +13,6 @@ import {
   DynamicFormComponent,
   UploadFormComponent,
   FormGeneratorComponent,
-  PdfHighlighterComponent
 } from './components';
 import { FormDirective } from './components/form.directive';
 import { FormService} from './shared/services/form.service';
@@ -29,6 +28,7 @@ import {
   NumberComponent,
   EmailComponent
 } from './components/form-generator/form-components';
+import { PdfHighlighterModule } from 'projects/pdf-highlighter/src/public-api';
 
 @NgModule({
   declarations: [
@@ -45,8 +45,7 @@ import {
     DateComponent,
     TelComponent,
     NumberComponent,
-    EmailComponent,
-    PdfHighlighterComponent
+    EmailComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +59,8 @@ import {
     AppRoutingModule,
     FabricModule,
     SharedModule,
-    HttpClientModule
+    HttpClientModule,
+    PdfHighlighterModule
   ],
   providers: [
     FormService,
