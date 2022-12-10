@@ -22,7 +22,7 @@
     "bootstrap": "^4.3.1",
     "core-js": "^2.5.4",
     "ejs": "^2.6.1",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "font-awesome": "^4.7.0",
     "ngx-bootstrap": "^4.2.0",
     "ngx-fabric-wrapper": "^8.0.0",
